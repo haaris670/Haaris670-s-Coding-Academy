@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Haaris670's Coding Academy</title>
+
+  <style>
+/* =========================================
+   GENERAL RESET
+========================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+========================================== */
+
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #222;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #4dabf7;
+}
+
+.nav-button {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #4dabf7;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.nav-button:hover {
+  background: #339af0;
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   SCREEN SYSTEM
+========================================== */
+
+.screen {
+  display: none;
+
+  min-height: calc(100vh - 80px);
+
+  padding: 50px 30px;
+
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+
+/* =========================================
+   TITLES
+========================================== */
+
+.main-title {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 22px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.screen > h1:not(.main-title) {
+  margin-bottom: 30px;
+}
+
+
+/* =========================================
+   MENU BUTTON CONTAINER
+========================================== */
+
+.menu-btn-container {
+  max-width: 700px;
+
+  margin: 30px auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+/* =========================================
+   LANGUAGE BUTTONS
+========================================== */
+
+.menu-btn-container button {
+  position: relative;
+
+  width: 100%;
+
+  padding: 15px 25px;
+
+  min-height: 50px;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.menu-btn-container button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   HTML BUTTON
+========================================== */
+
+.html-button {
+  background: linear-gradient(
+    135deg,
+    #f04423 0%,
+    #f04423 50%,
+    #ff6b35 50%,
+    #ff6b35 100%
+  );
+
+  color: white;
+}
+
+
+/* =========================================
+   CSS BUTTON
+========================================== */
+
+.css-button {
+  background: linear-gradient(
+    135deg,
+    #2f4ee8 0%,
+    #2f4ee8 50%,
+    #2f70ed 50%,
+    #2f70ed 100%
+  );
+
+  color: white;
+}
+
+
+/* =========================================
+   PYTHON BUTTON
+========================================== */
+
+.python-button {
+  background: linear-gradient(
+    135deg,
+    #3674a1 0%,
+    #3674a1 50%,
+    #ffd43b 50%,
+    #ffd43b 100%
+  );
+
+  color: #222;
+}
+
+
+/* =========================================
+   LUA BUTTON
+========================================== */
+
+.lua-button {
+  background: linear-gradient(
+    135deg,
+    #07078f 0%,
+    #07078f 50%,
+    #858585 50%,
+    #858585 100%
+  );
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.lua-button small {
+  font-size: 13px;
+
+  color: white;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================== */
+
+.back-button {
+  display: block;
+
+  margin-bottom: 30px;
+
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #343a40;
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.back-button:hover {
+  background: #212529;
+
+  transform: translateX(-3px);
+}
+
+
+/* =========================================
+   WORKSPACE
+========================================== */
+
+.workspace-container {
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  text-align: left;
+}
+
+.lesson-panel,
+.preview-panel {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-panel h2 {
+  margin: 15px 0;
+}
+
+.lesson-panel > p {
+  color: #666;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   LESSON NUMBER
+========================================== */
+
+.lesson-number {
+  display: inline-block;
+
+  padding: 8px 15px;
+
+  border-radius: 20px;
+
+  background: #e7f5ff;
+
+  color: #1971c2;
+
+  font-weight: bold;
+}
+
+
+/* =========================================
+   LEARN BOX
+========================================== */
+
+.learn-box {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-left: 5px solid #339af0;
+
+  border-radius: 8px;
+
+  background: #f1f8ff;
+}
+
+.learn-box h3 {
+  margin-bottom: 10px;
+}
+
+.learn-box p {
+  line-height: 1.6;
+
+  color: #555;
+}
+
+
+/* =========================================
+   TASK BOX
+========================================== */
+
+.task-box {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  background: #f8f9fa;
+}
+
+.task-box h3 {
+  margin-bottom: 15px;
+}
+
+.task-box > p {
+  margin-bottom: 15px;
+
+  line-height: 1.5;
+}
+
+.example-text {
+  font-weight: bold;
+}
+
+
+/* =========================================
+   CODE EXAMPLE
+========================================== */
+
+.large-code {
+  display: block;
+
+  width: 100%;
+
+  margin: 10px 0 20px;
+
+  padding: 15px;
+
+  border-radius: 8px;
+
+  background: #212529;
+
+  color: #f8f9fa;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  white-space: pre-wrap;
+
+  overflow-x: auto;
+}
+
+
+/* =========================================
+   CODE INPUT
+========================================== */
+
+textarea {
+  width: 100%;
+
+  min-height: 180px;
+
+  padding: 15px;
+
+  border: 2px solid #dee2e6;
+
+  border-radius: 10px;
+
+  resize: vertical;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+textarea:focus {
+  border-color: #339af0;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(51, 154, 240, 0.15);
+}
+
+
+/* =========================================
+   CHECK BUTTON
+========================================== */
+
+.check-button {
+  margin-top: 15px;
+
+  padding: 12px 25px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #339af0;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.check-button:hover {
+  background: #228be6;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESULT MESSAGE
+========================================== */
+
+.result-msg {
+  margin-top: 15px;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+}
+
+.result-msg.success {
+  background: #d3f9d8;
+
+  color: #2b8a3e;
+}
+
+.result-msg.error {
+  background: #ffe3e3;
+
+  color: #c92a2a;
+}
+
+
+/* =========================================
+   NEXT BUTTON
+========================================== */
+
+.next-button {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #51cf66;
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.next-button:hover {
+  background: #40c057;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   PREVIEW PANEL
+========================================== */
+
+.preview-panel h3 {
+  margin-bottom: 20px;
+}
+
+.render-box,
+.css-preview,
+.python-output {
+  min-height: 300px;
+
+  padding: 25px;
+
+  border: 2px dashed #ced4da;
+
+  border-radius: 10px;
+
+  background: #f8f9fa;
+
+  overflow: auto;
+}
+
+.placeholder-text {
+  color: #868e96;
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   CSS PREVIEW
+========================================== */
+
+.css-preview {
+  text-align: left;
+}
+
+.css-preview h2 {
+  margin-bottom: 15px;
+}
+
+.css-preview p {
+  margin-bottom: 20px;
+}
+
+.css-preview button {
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #339af0;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   PYTHON OUTPUT
+========================================== */
+
+.python-output {
+  background: #212529;
+
+  color: #f8f9fa;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  white-space: pre-wrap;
+
+  text-align: left;
+}
+
+
+/* =========================================
+   LESSON MENU BUTTONS
+========================================== */
+
+.lesson-btn {
+  background: #ff922b;
+
+  color: white;
+}
+
+.css-lesson-btn {
+  background: #339af0;
+
+  color: white;
+}
+
+.python-lesson-btn {
+  background: #ffd43b;
+
+  color: #222;
+}
+
+
+/* =========================================
+   PYTHON RUN BUTTON
+========================================== */
+
+.python-run-button {
+  background: #f59f00;
+}
+
+.python-run-button:hover {
+  background: #e67700;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+
+  .workspace-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .screen {
+    padding: 30px 15px;
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .lesson-panel,
+  .preview-panel {
+    padding: 20px;
+  }
+
+  .menu-btn-container button {
+    font-size: 17px;
+  }
+
+}
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       NAVIGATION BAR
+  ========================================== -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      Haaris670's <span>Coding Academy</span>
+    </div>
+
+    <button
+      class="nav-button"
+      onclick="showScreen('main-home-screen')"
+    >
+      Home
+    </button>
+
+  </header>
+
+
+
+  <!-- =========================================
+       HOME SCREEN
+  ========================================== -->
+
+  <section
+    id="main-home-screen"
+    class="screen active"
+  >
+
+    <h1 class="main-title">
+      Welcome to my webpage!
+    </h1>
+
+    <h2 class="subtitle">
+      Here, you will learn how to code
+    </h2>
+
+    <h1>
+      Choose a language
+    </h1>
+
+
+    <div class="menu-btn-container">
+
+
+      <button
+        class="html-button"
+        onclick="showScreen('html-menu-screen')"
+      >
+        HTML
+      </button>
+
+
+      <button
+        class="css-button"
+        onclick="showScreen('css-menu-screen')"
+      >
+        CSS
+      </button>
+
+
+      <button
+        class="python-button"
+        onclick="showScreen('python-menu-screen')"
+      >
+        Python
+      </button>
+
+
+      <button class="lua-button">
+
+        Lua
+
+        <small>
+          Coming Soon
+        </small>
+
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       HTML LESSON MENU
+  ========================================== -->
+
+  <section
+    id="html-menu-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('main-home-screen')"
+    >
+      ← Back to Home
+    </button>
+
+
+    <h1 class="main-title">
+      🟠 HTML Tutorial
+    </h1>
+
+
+    <h2 class="subtitle">
+      15 beginner lessons to learn HTML
+    </h2>
+
+
+    <div
+      id="html-lesson-list"
+      class="menu-btn-container"
+    >
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       HTML LESSON WORKSPACE
+  ========================================== -->
+
+  <section
+    id="html-lesson-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('html-menu-screen')"
+    >
+      ← Back to HTML Lessons
+    </button>
+
+
+    <div class="workspace-container">
+
+
+      <div class="lesson-panel">
+
+
+        <div
+          class="lesson-number"
+          id="html-lesson-number"
+        >
+        </div>
+
+
+        <h2 id="html-lesson-title">
+          HTML Lesson
+        </h2>
+
+
+        <p id="html-lesson-description">
+        </p>
+
+
+        <div class="learn-box">
+
+          <h3>
+            📖 What You'll Learn
+          </h3>
+
+          <p id="html-lesson-explanation">
+          </p>
+
+        </div>
+
+
+        <div class="task-box">
+
+          <h3>
+            🎯 Your Challenge
+          </h3>
+
+
+          <p id="html-lesson-challenge">
+          </p>
+
+
+          <p class="example-text">
+            Example:
+          </p>
+
+
+          <code
+            id="html-lesson-example"
+            class="large-code"
+          >
+          </code>
+
+
+          <textarea
+            id="html-code-input"
+            placeholder="Type your HTML code here..."
+          ></textarea>
+
+
+          <button
+            class="check-button"
+            onclick="checkHTMLLesson()"
+          >
+            Verify Code
+          </button>
+
+
+          <div
+            id="html-result"
+            class="result-msg"
+          >
+          </div>
+
+        </div>
+
+
+        <button
+          id="html-next-button"
+          class="next-button"
+          onclick="nextHTMLLesson()"
+        >
+          Next Lesson →
+        </button>
+
+
+      </div>
+
+
+
+      <div class="preview-panel">
+
+        <h3>
+          👀 Live Preview
+        </h3>
+
+
+        <div
+          id="html-preview"
+          class="render-box"
+        >
+
+          <span class="placeholder-text">
+            Your HTML output will appear here...
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       CSS LESSON MENU
+  ========================================== -->
+
+  <section
+    id="css-menu-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('main-home-screen')"
+    >
+      ← Back to Home
+    </button>
+
+
+    <h1 class="main-title">
+      🔵 CSS Tutorial
+    </h1>
+
+
+    <h2 class="subtitle">
+      50 lessons from beginner to intermediate CSS
+    </h2>
+
+
+    <div
+      id="css-lesson-list"
+      class="menu-btn-container"
+    >
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       CSS LESSON WORKSPACE
+  ========================================== -->
+
+  <section
+    id="css-lesson-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('css-menu-screen')"
+    >
+      ← Back to CSS Lessons
+    </button>
+
+
+    <div class="workspace-container">
+
+
+      <div class="lesson-panel">
+
+
+        <div
+          id="css-lesson-number"
+          class="lesson-number"
+        >
+        </div>
+
+
+        <h2 id="css-lesson-title">
+          CSS Lesson
+        </h2>
+
+
+        <p id="css-lesson-description">
+        </p>
+
+
+        <div class="learn-box">
+
+          <h3>
+            📖 What You'll Learn
+          </h3>
+
+          <p id="css-lesson-explanation">
+          </p>
+
+        </div>
+
+
+        <div class="task-box">
+
+          <h3>
+            🎯 Your Challenge
+          </h3>
+
+
+          <p id="css-lesson-challenge">
+          </p>
+
+
+          <textarea
+            id="css-code-input"
+            placeholder="Type your CSS code here..."
+          ></textarea>
+
+
+          <button
+            class="check-button"
+            onclick="runCSSLesson()"
+          >
+            Run CSS
+          </button>
+
+
+          <div
+            id="css-result"
+            class="result-msg"
+          >
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="preview-panel">
+
+        <h3>
+          👀 Live CSS Preview
+        </h3>
+
+
+        <div
+          id="css-preview"
+          class="css-preview"
+        >
+
+          <h2>
+            Hello, CSS!
+          </h2>
+
+
+          <p>
+            Change me with your CSS!
+          </p>
+
+
+          <button>
+            Test Button
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       PYTHON LESSON MENU
+  ========================================== -->
+
+  <section
+    id="python-menu-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('main-home-screen')"
+    >
+      ← Back to Home
+    </button>
+
+
+    <h1 class="main-title python-title">
+      🐍 Python Tutorial
+    </h1>
+
+
+    <h2 class="subtitle">
+      40 lessons to take you from Python beginner to confident programmer
+    </h2>
+
+
+    <div
+      id="python-lesson-list"
+      class="menu-btn-container"
+    >
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       PYTHON LESSON WORKSPACE
+  ========================================== -->
+
+  <section
+    id="python-lesson-screen"
+    class="screen"
+  >
+
+    <button
+      class="back-button"
+      onclick="showScreen('python-menu-screen')"
+    >
+      ← Back to Python Lessons
+    </button>
+
+
+    <div class="workspace-container">
+
+
+      <!-- PYTHON LESSON INFORMATION -->
+
+      <div class="lesson-panel">
+
+
+        <div
+          id="python-lesson-number"
+          class="lesson-number"
+        >
+        </div>
+
+
+        <h2 id="python-lesson-title">
+          Python Lesson
+        </h2>
+
+
+        <p id="python-lesson-description">
+        </p>
+
+
+        <div class="learn-box">
+
+          <h3>
+            📖 What You'll Learn
+          </h3>
+
+
+          <p id="python-lesson-explanation">
+          </p>
+
+        </div>
+
+
+        <div class="task-box">
+
+
+          <h3>
+            🎯 Your Challenge
+          </h3>
+
+
+          <p id="python-lesson-challenge">
+          </p>
+
+
+          <p class="example-text">
+            Example:
+          </p>
+
+
+          <code
+            id="python-lesson-example"
+            class="large-code"
+          >
+          </code>
+
+
+          <textarea
+            id="python-code-input"
+            placeholder="Type your Python code here..."
+          ></textarea>
+
+
+          <button
+            class="check-button python-run-button"
+            onclick="runPythonLesson()"
+          >
+            ▶ Run Python
+          </button>
+
+
+          <div
+            id="python-result"
+            class="result-msg"
+          >
+          </div>
+
+
+        </div>
+
+
+        <button
+          id="python-next-button"
+          class="next-button"
+          onclick="nextPythonLesson()"
+        >
+          Next Lesson →
+        </button>
+
+
+      </div>
+
+
+
+      <!-- PYTHON OUTPUT -->
+
+      <div class="preview-panel python-preview-panel">
+
+
+        <h3>
+          🖥️ Python Output
+        </h3>
+
+
+        <div
+          id="python-output"
+          class="python-output"
+        >
+
+          <span class="placeholder-text">
+            Your Python output will appear here...
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+ <!-- =========================================
+     PYODIDE PYTHON INTERPRETER
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
+
+
+<script>
+
+/* =========================================
+   SCREEN NAVIGATION
+========================================= */
+
+function showScreen(screenId) {
+
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  const screen = document.getElementById(screenId);
+
+  if (screen) {
+    screen.classList.add("active");
+  } else {
+    console.error("Screen not found:", screenId);
+  }
+
+}
+
+
+/* =========================================
+   HTML LESSONS
+========================================= */
+
+const htmlLessons = [
+
+  {
+    title: "HTML Document Structure",
+    description: "Learn the basic structure of an HTML webpage.",
+    explanation: "HTML documents normally contain a DOCTYPE declaration, an html element, a head section and a body section.",
+    challenge: "Create a basic HTML document structure.",
+    example: "<!DOCTYPE html>"
+  },
+
+  {
+    title: "Headings",
+    description: "Learn how to create headings using h1 through h6.",
+    explanation: "HTML has six heading levels. h1 is normally the most important heading and h6 is the least important.",
+    challenge: "Create an h1 heading that says Hello World.",
+    example: "<h1>Hello World</h1>"
+  },
+
+  {
+    title: "Paragraphs",
+    description: "Learn how to add normal text.",
+    explanation: "The p element creates a paragraph.",
+    challenge: "Create a paragraph that says Coding is fun.",
+    example: "<p>Coding is fun.</p>"
+  },
+
+  {
+    title: "Text Formatting",
+    description: "Learn how to make text bold and emphasised.",
+    explanation: "HTML provides elements such as strong and em for text formatting.",
+    challenge: "Create bold text using strong.",
+    example: "<strong>Hello</strong>"
+  },
+
+  {
+    title: "HTML Links",
+    description: "Learn how to create clickable links.",
+    explanation: "The a element creates a hyperlink.",
+    challenge: "Create a link to example.com.",
+    example: '<a href="https://example.com">Visit</a>'
+  },
+
+  {
+    title: "HTML Images",
+    description: "Learn how to display images.",
+    explanation: "The img element displays an image using src and alt attributes.",
+    challenge: "Create an image using src and alt.",
+    example: '<img src="image.jpg" alt="My image">'
+  },
+
+  {
+    title: "HTML Lists",
+    description: "Learn how to create lists.",
+    explanation: "ul creates unordered lists, ol creates ordered lists and li creates list items.",
+    challenge: "Create an unordered list containing one item.",
+    example: "<ul><li>HTML</li></ul>"
+  },
+
+  {
+    title: "HTML Attributes",
+    description: "Learn how attributes give elements extra information.",
+    explanation: "Attributes are written inside opening tags.",
+    challenge: "Create a paragraph with a class attribute.",
+    example: '<p class="text">Hello</p>'
+  },
+
+  {
+    title: "div and span",
+    description: "Learn how div and span organise content.",
+    explanation: "div is a block-level container while span is an inline container.",
+    challenge: "Create a div containing a paragraph.",
+    example: "<div><p>Hello</p></div>"
+  },
+
+  {
+    title: "Classes and IDs",
+    description: "Learn how to identify HTML elements.",
+    explanation: "Classes can be shared while IDs normally identify one unique element.",
+    challenge: "Create a heading with a class and an ID.",
+    example: '<h1 class="title" id="main-title">Hello</h1>'
+  },
+
+  {
+    title: "HTML Tables",
+    description: "Learn how to organise information into tables.",
+    explanation: "Tables use table, tr, th and td elements.",
+    challenge: "Create a table with one row and one cell.",
+    example: "<table><tr><td>Hello</td></tr></table>"
+  },
+
+  {
+    title: "HTML Forms and Inputs",
+    description: "Learn how websites collect user information.",
+    explanation: "Forms contain input elements that allow users to enter information.",
+    challenge: "Create a text input inside a form.",
+    example: '<form><input type="text"></form>'
+  },
+
+  {
+    title: "HTML Buttons",
+    description: "Learn how to create clickable buttons.",
+    explanation: "The button element creates a clickable button.",
+    challenge: "Create a button that says Click Me.",
+    example: "<button>Click Me</button>"
+  },
+
+  {
+    title: "Semantic HTML",
+    description: "Learn how to structure webpages meaningfully.",
+    explanation: "Semantic elements describe their purpose.",
+    challenge: "Create a main element containing a section.",
+    example: "<main><section>Hello</section></main>"
+  },
+
+  {
+    title: "🏆 Final HTML Project",
+    description: "Combine everything you learned.",
+    explanation: "Build a mini webpage using several HTML concepts.",
+    challenge: "Create a webpage using at least three HTML concepts.",
+    example: "<h1>My Website</h1><p>Welcome!</p>"
+  }
+
+];
+
+
+/* =========================================
+   HTML MENU
+========================================= */
+
+const htmlList = document.getElementById("html-lesson-list");
+
+htmlLessons.forEach((lesson, index) => {
+
+  const button = document.createElement("button");
+
+  button.className = "lesson-btn";
+
+  button.textContent =
+    `Lesson ${index + 1}: ${lesson.title}`;
+
+  button.onclick = function() {
+    openHTMLLesson(index);
+  };
+
+  htmlList.appendChild(button);
+
+});
+
+
+let currentHTMLLesson = 0;
+
+
+/* =========================================
+   OPEN HTML LESSON
+========================================= */
+
+function openHTMLLesson(index) {
+
+  currentHTMLLesson = index;
+
+  const lesson = htmlLessons[index];
+
+  document.getElementById("html-lesson-number").textContent =
+    `Lesson ${index + 1} of ${htmlLessons.length}`;
+
+  document.getElementById("html-lesson-title").textContent =
+    lesson.title;
+
+  document.getElementById("html-lesson-description").textContent =
+    lesson.description;
+
+  document.getElementById("html-lesson-explanation").textContent =
+    lesson.explanation;
+
+  document.getElementById("html-lesson-challenge").textContent =
+    lesson.challenge;
+
+  document.getElementById("html-lesson-example").textContent =
+    lesson.example;
+
+  document.getElementById("html-code-input").value = "";
+
+  document.getElementById("html-result").textContent = "";
+
+  document.getElementById("html-result").className =
+    "result-msg";
+
+  document.getElementById("html-preview").innerHTML = `
+    <span class="placeholder-text">
+      Your HTML output will appear here...
+    </span>
+  `;
+
+  showScreen("html-lesson-screen");
+
+}
+
+
+/* =========================================
+   NORMALISE HTML
+========================================= */
+
+function normaliseHTML(code) {
+
+  return code
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/'/g, '"');
+
+}
+
+
+/* =========================================
+   CHECK HTML ANSWER
+========================================= */
+
+function checkHTMLLesson() {
+
+  const code =
+    document.getElementById("html-code-input").value.trim();
+
+  const preview =
+    document.getElementById("html-preview");
+
+  const result =
+    document.getElementById("html-result");
+
+  const lesson =
+    htmlLessons[currentHTMLLesson];
+
+
+  if (code === "") {
+
+    result.textContent =
+      "❌ Please write some HTML first.";
+
+    result.className =
+      "result-msg error";
+
+    return;
+
+  }
+
+
+  const userCode =
+    normaliseHTML(code);
+
+  const targetCode =
+    normaliseHTML(lesson.example);
+
+
+  if (userCode === targetCode) {
+
+    preview.innerHTML = code;
+
+    result.textContent =
+      "🎉 Correct! Your HTML answer is right!";
+
+    result.className =
+      "result-msg success";
+
+  } else {
+
+    result.textContent =
+      "❌ Not quite right. Check your HTML and try again.";
+
+    result.className =
+      "result-msg error";
+
+  }
+
+}
+
+
+/* =========================================
+   NEXT HTML LESSON
+========================================= */
+
+function nextHTMLLesson() {
+
+  if (currentHTMLLesson < htmlLessons.length - 1) {
+
+    openHTMLLesson(currentHTMLLesson + 1);
+
+  } else {
+
+    showScreen("html-menu-screen");
+
+  }
+
+}
+
+
+/* =========================================
+   CSS LESSONS
+========================================= */
+
+const cssLessons = [
+
+  ["What is CSS?", "Learn what CSS is.", "CSS controls how HTML elements look.", "Change the text colour.", "color: red;"],
+
+  ["CSS Syntax", "Learn CSS syntax.", "CSS rules use selectors, properties and values.", "Write a CSS rule.", "color: red;"],
+
+  ["Inline CSS", "Learn inline CSS.", "Inline CSS uses the style attribute.", "Create an inline style.", "color: red;"],
+
+  ["Internal CSS", "Learn internal CSS.", "Internal CSS is placed inside a style element.", "Create an internal CSS rule.", "p { color: red; }"],
+
+  ["External CSS", "Learn external stylesheets.", "External CSS is stored in a separate file.", "Connect a stylesheet.", "p { color: red; }"],
+
+  ["CSS Selectors", "Learn selectors.", "Selectors choose elements to style.", "Select an element.", "p { color: red; }"],
+
+  ["Element Selectors", "Select HTML tags.", "Element selectors target tags.", "Style paragraphs.", "p { color: red; }"],
+
+  ["Class Selectors", "Select classes.", "Class selectors begin with a dot.", "Style a class.", ".text { color: red; }"],
+
+  ["ID Selectors", "Select IDs.", "ID selectors begin with #.", "Style an ID.", "#title { color: red; }"],
+
+  ["CSS Comments", "Learn CSS comments.", "Comments are written with /* and */.", "Write a comment.", "/* This is a comment */"],
+
+  ["color", "Change text colour.", "The color property changes text colour.", "Change text colour.", "color: red;"],
+
+  ["background-color", "Change backgrounds.", "background-color changes the background.", "Change the background.", "background-color: yellow;"],
+
+  ["font-size", "Change text size.", "font-size controls text size.", "Make text larger.", "font-size: 30px;"],
+
+  ["font-family", "Change fonts.", "font-family chooses a typeface.", "Change the font.", "font-family: Arial;"],
+
+  ["font-weight", "Make text bold.", "font-weight controls thickness.", "Make text bold.", "font-weight: bold;"],
+
+  ["text-align", "Align text.", "text-align controls text alignment.", "Centre text.", "text-align: center;"],
+
+  ["text-decoration", "Decorate text.", "text-decoration adds effects.", "Underline text.", "text-decoration: underline;"],
+
+  ["text-transform", "Transform text case.", "text-transform changes capitalisation.", "Make text uppercase.", "text-transform: uppercase;"],
+
+  ["line-height", "Control line spacing.", "line-height controls vertical text spacing.", "Increase line spacing.", "line-height: 2;"],
+
+  ["Text Styling Challenge", "Combine text properties.", "Combine several text properties.", "Create a styled heading.", "color: blue; font-size: 30px;"],
+
+  ["The Box Model", "Learn the CSS box model.", "The box model contains content, padding, border and margin.", "Create a box.", "padding: 20px;"],
+
+  ["width and height", "Control dimensions.", "width and height control size.", "Change dimensions.", "width: 200px; height: 100px;"],
+
+  ["padding", "Add internal space.", "Padding creates space inside an element.", "Add padding.", "padding: 20px;"],
+
+  ["margin", "Add external space.", "Margin creates space outside an element.", "Add margin.", "margin: 20px;"],
+
+  ["border", "Create borders.", "border adds an edge around an element.", "Add a border.", "border: 2px solid black;"],
+
+  ["border-radius", "Round corners.", "border-radius rounds corners.", "Round corners.", "border-radius: 10px;"],
+
+  ["box-sizing", "Understand sizing.", "box-sizing controls how dimensions are calculated.", "Use box-sizing.", "box-sizing: border-box;"],
+
+  ["max-width", "Limit width.", "max-width prevents elements becoming too wide.", "Set a maximum width.", "max-width: 500px;"],
+
+  ["margin: auto", "Centre elements.", "margin auto can centre block elements.", "Centre an element.", "margin: auto;"],
+
+  ["Box Model Challenge", "Combine box model properties.", "Use width, padding, margin and borders.", "Create a complete card.", "width: 200px; padding: 20px; margin: 20px; border: 2px solid black;"],
+
+  ["box-shadow", "Add shadows.", "box-shadow creates shadows.", "Add a shadow.", "box-shadow: 5px 5px 10px gray;"],
+
+  ["opacity", "Control transparency.", "opacity controls transparency.", "Make an element transparent.", "opacity: 0.5;"],
+
+  ["transition", "Create smooth changes.", "transition animates property changes.", "Add a transition.", "transition: 0.3s;"],
+
+  [":hover", "React to mouse movement.", ":hover applies styles when the pointer is over an element.", "Create a hover effect.", "button:hover { color: red; }"],
+
+  ["transform", "Transform elements.", "transform can move, rotate or resize elements.", "Transform an element.", "transform: scale(1.1);"],
+
+  ["scale()", "Resize elements.", "scale changes element size.", "Make a button grow.", "transform: scale(1.1);"],
+
+  ["rotate()", "Rotate elements.", "rotate spins an element.", "Rotate a button.", "transform: rotate(10deg);"],
+
+  ["Combining Effects", "Combine CSS effects.", "Transitions and transforms can work together.", "Create an interactive effect.", "transition: 0.3s; transform: scale(1.1);"],
+
+  ["Button Design", "Design buttons.", "Buttons can use colours, borders and effects.", "Create a button design.", "background-color: blue; color: white; padding: 10px;"],
+
+  ["Visual Effects Challenge", "Combine visual effects.", "Use multiple visual properties together.", "Create an effect.", "box-shadow: 5px 5px 10px gray; border-radius: 10px;"],
+
+  ["display", "Control element display.", "display controls layout behaviour.", "Change display mode.", "display: block;"],
+
+  ["Flexbox", "Learn Flexbox.", "Flexbox is a one-dimensional layout system.", "Create a flex container.", "display: flex;"],
+
+  ["justify-content", "Align Flexbox items.", "justify-content controls the main axis.", "Centre items.", "justify-content: center;"],
+
+  ["align-items", "Align the cross axis.", "align-items controls cross-axis alignment.", "Centre items vertically.", "align-items: center;"],
+
+  ["flex-direction", "Change Flexbox direction.", "flex-direction controls rows and columns.", "Create a column layout.", "flex-direction: column;"],
+
+  ["CSS Grid", "Learn CSS Grid.", "Grid is a two-dimensional layout system.", "Create a grid.", "display: grid;"],
+
+  ["grid-template-columns", "Control grid columns.", "This property defines grid columns.", "Create three columns.", "grid-template-columns: 1fr 1fr 1fr;"],
+
+  ["Responsive Design", "Make responsive websites.", "Media queries allow designs to adapt to screen sizes.", "Create a media query.", "@media (max-width: 600px) { }"],
+
+  ["Positioning and z-index", "Position and layer elements.", "position controls placement and z-index controls stacking.", "Position two elements.", "position: absolute; z-index: 10;"],
+
+  ["🏆 Final CSS Project", "Build a complete design.", "Combine your CSS knowledge.", "Create a complete styled webpage.", "color: blue; background-color: white; padding: 20px;"]
+
+];
+
+
+/* =========================================
+   CSS MENU
+========================================= */
+
+const cssList =
+  document.getElementById("css-lesson-list");
+
+cssLessons.forEach((lesson, index) => {
+
+  const button =
+    document.createElement("button");
+
+  button.className =
+    "css-lesson-btn";
+
+  button.textContent =
+    `Lesson ${index + 1}: ${lesson[0]}`;
+
+  button.onclick =
+    function() {
+      openCSSLesson(index);
+    };
+
+  cssList.appendChild(button);
+
+});
+
+
+let currentCSSLesson = 0;
+
+
+/* =========================================
+   OPEN CSS LESSON
+========================================= */
+
+function openCSSLesson(index) {
+
+  currentCSSLesson = index;
+
+  const lesson =
+    cssLessons[index];
+
+  document.getElementById(
+    "css-lesson-number"
+  ).textContent =
+    `Lesson ${index + 1} of ${cssLessons.length}`;
+
+  document.getElementById(
+    "css-lesson-title"
+  ).textContent =
+    lesson[0];
+
+  document.getElementById(
+    "css-lesson-description"
+  ).textContent =
+    lesson[1];
+
+  document.getElementById(
+    "css-lesson-explanation"
+  ).textContent =
+    lesson[2];
+
+  document.getElementById(
+    "css-lesson-challenge"
+  ).textContent =
+    lesson[3];
+
+  document.getElementById(
+    "css-code-input"
+  ).value = "";
+
+  document.getElementById(
+    "css-result"
+  ).textContent = "";
+
+  document.getElementById(
+    "css-result"
+  ).className =
+    "result-msg";
+
+  showScreen(
+    "css-lesson-screen"
+  );
+
+}
+
+
+/* =========================================
+   NORMALISE CSS
+========================================= */
+
+function normaliseCSS(code) {
+
+  return code
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+}
+
+
+/* =========================================
+   CHECK CSS ANSWER
+========================================= */
+
+function runCSSLesson() {
+
+  const cssCode =
+    document.getElementById(
+      "css-code-input"
+    ).value.trim();
+
+  const result =
+    document.getElementById(
+      "css-result"
+    );
+
+  const preview =
+    document.getElementById(
+      "css-preview"
+    );
+
+  const lesson =
+    cssLessons[currentCSSLesson];
+
+
+  if (cssCode === "") {
+
+    result.textContent =
+      "❌ Please write some CSS first.";
+
+    result.className =
+      "result-msg error";
+
+    return;
+
+  }
+
+
+  const userCSS =
+    normaliseCSS(cssCode);
+
+  const targetCSS =
+    normaliseCSS(lesson[4]);
+
+
+  if (
+    userCSS === targetCSS ||
+    userCSS.includes(targetCSS)
+  ) {
+
+    const oldStyle =
+      document.getElementById(
+        "student-css"
+      );
+
+    if (oldStyle) {
+      oldStyle.remove();
+    }
+
+
+    const style =
+      document.createElement(
+        "style"
+      );
+
+    style.id =
+      "student-css";
+
+
+    /*
+      If the user enters a full selector,
+      use it directly.
+
+      Otherwise apply the CSS
+      to the preview.
+    */
+
+    if (
+      cssCode.includes("{")
+    ) {
+
+      style.textContent =
+        `.css-preview ${cssCode}`;
+
+    } else {
+
+      style.textContent =
+        `.css-preview { ${cssCode} }`;
+
+    }
+
+
+    document.head.appendChild(
+      style
+    );
+
+
+    result.textContent =
+      "🎉 Correct! Your CSS answer is right!";
+
+    result.className =
+      "result-msg success";
+
+  } else {
+
+    result.textContent =
+      "❌ Not quite right. Check your CSS and try again.";
+
+    result.className =
+      "result-msg error";
+
+  }
+
+}
+
+
+/* =========================================
+   PYTHON LESSONS
+========================================= */
+
+const pythonLessons = [
+
+  {
+    title: "What is Python?",
+    description: "Learn what Python is.",
+    explanation: "Python is a programming language known for readable syntax.",
+    challenge: 'Write a message saying Hello Python!',
+    example: 'print("Hello, Python!")',
+    output: "Hello, Python!"
+  },
+
+  {
+    title: "print()",
+    description: "Learn how to display information.",
+    explanation: "The print() function displays information.",
+    challenge: 'Print the message "Hello World".',
+    example: 'print("Hello World")',
+    output: "Hello World"
+  },
+
+  {
+    title: "Comments",
+    description: "Learn how to add notes to your code.",
+    explanation: "Comments are ignored by Python.",
+    challenge: "Write a comment and a print statement.",
+    example: '# My first comment\nprint("Hello")',
+    output: "Hello"
+  },
+
+  {
+    title: "Variables",
+    description: "Learn how to store information.",
+    explanation: "Variables give names to values.",
+    challenge: "Create a variable called name.",
+    example: 'name = "Haaris"',
+    output: "Variable created!"
+  },
+
+  {
+    title: "Strings",
+    description: "Learn how to work with text.",
+    explanation: "Strings are pieces of text.",
+    challenge: 'Create a string containing "Python is fun".',
+    example: 'message = "Python is fun"',
+    output: "Python is fun"
+  },
+
+  {
+    title: "Integers",
+    description: "Learn about whole numbers.",
+    explanation: "Integers are whole numbers.",
+    challenge: "Create a variable containing 100.",
+    example: "score = 100",
+    output: "100"
+  },
+
+  {
+    title: "Floats",
+    description: "Learn about decimal numbers.",
+    explanation: "Floats contain decimal points.",
+    challenge: "Create a variable containing 10.5.",
+    example: "price = 10.5",
+    output: "10.5"
+  },
+
+  {
+    title: "Booleans",
+    description: "Learn about True and False.",
+    explanation: "Boolean values are True or False.",
+    challenge: "Create a variable containing True.",
+    example: "is_ready = True",
+    output: "True"
+  },
+
+  {
+    title: "type()",
+    description: "Learn how to check a value's data type.",
+    explanation: "type() tells you what kind of data a value contains.",
+    challenge: "Use type() to check a variable.",
+    example: 'print(type("Hello"))',
+    output: "<class 'str'>"
+  },
+
+  {
+    title: "input()",
+    description: "Learn how to ask the user for information.",
+    explanation: "input() receives text from the user.",
+    challenge: "Ask the user for their name.",
+    example: 'name = input("What is your name? ")',
+    output: "User input received!"
+  },
+
+  {
+    title: "Converting Data Types",
+    description: "Learn how to convert values.",
+    explanation: "int(), float() and str() convert values.",
+    challenge: 'Convert the string "10" into an integer.',
+    example: 'number = int("10")',
+    output: "10"
+  },
+
+  {
+    title: "Basic Maths",
+    description: "Learn mathematical operators.",
+    explanation: "Python supports mathematical operations.",
+    challenge: "Calculate 10 + 5.",
+    example: "result = 10 + 5\nprint(result)",
+    output: "15"
+  },
+
+  {
+    title: "Comparison Operators",
+    description: "Learn how to compare values.",
+    explanation: "Comparison operators produce True or False.",
+    challenge: "Check whether 10 is greater than 5.",
+    example: "print(10 > 5)",
+    output: "True"
+  },
+
+  {
+    title: "if Statements",
+    description: "Learn how programs make decisions.",
+    explanation: "if runs code when a condition is True.",
+    challenge: "Create an if statement.",
+    example: "score = 20\nif score > 10:\n    print('High score!')",
+    output: "High score!"
+  },
+
+  {
+    title: "else",
+    description: "Learn how to handle alternative conditions.",
+    explanation: "else runs when if is False.",
+    challenge: "Create an if/else statement.",
+    example: "age = 20\nif age >= 18:\n    print('Adult')\nelse:\n    print('Under 18')",
+    output: "Adult"
+  },
+
+  {
+    title: "elif",
+    description: "Learn how to check multiple conditions.",
+    explanation: "elif allows you to test another condition.",
+    challenge: "Create an if, elif and else structure.",
+    example: "score = 85\nif score >= 90:\n    print('A')\nelif score >= 80:\n    print('B')\nelse:\n    print('C')",
+    output: "B"
+  },
+
+  {
+    title: "Logical Operators",
+    description: "Learn and, or and not.",
+    explanation: "Logical operators combine conditions.",
+    challenge: "Use and to combine two conditions.",
+    example: "age = 20\nhas_id = True\nif age >= 18 and has_id:\n    print('Allowed')",
+    output: "Allowed"
+  },
+
+  {
+    title: "Nested if Statements",
+    description: "Learn nested conditions.",
+    explanation: "A nested if is an if inside another if.",
+    challenge: "Create a nested if statement.",
+    example: "age = 20\nhas_id = True\nif age >= 18:\n    if has_id:\n        print('Allowed')",
+    output: "Allowed"
+  },
+
+  {
+    title: "while Loops",
+    description: "Learn while loops.",
+    explanation: "while repeats code while a condition is True.",
+    challenge: "Create a while loop.",
+    example: "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1",
+    output: "1\n2\n3"
+  },
+
+  {
+    title: "for Loops",
+    description: "Learn for loops.",
+    explanation: "for loops iterate over sequences.",
+    challenge: "Create a for loop.",
+    example: "for number in [1, 2, 3]:\n    print(number)",
+    output: "1\n2\n3"
+  },
+
+  {
+    title: "range()",
+    description: "Learn range().",
+    explanation: "range() generates number sequences.",
+    challenge: "Use range() to loop from 0 to 4.",
+    example: "for i in range(5):\n    print(i)",
+    output: "0\n1\n2\n3\n4"
+  },
+
+  {
+    title: "break",
+    description: "Learn how to stop a loop.",
+    explanation: "break immediately exits a loop.",
+    challenge: "Use break to stop a loop.",
+    example: "while True:\n    break",
+    output: ""
+  },
+
+  {
+    title: "continue",
+    description: "Learn how to skip an iteration.",
+    explanation: "continue skips the current iteration.",
+    challenge: "Use continue inside a loop.",
+    example: "for i in range(5):\n    if i == 2:\n        continue\n    print(i)",
+    output: "0\n1\n3\n4"
+  },
+
+  {
+    title: "Lists",
+    description: "Learn how to store multiple values.",
+    explanation: "Lists store multiple values.",
+    challenge: "Create a list containing three programming languages.",
+    example: 'languages = ["Python", "HTML", "CSS"]',
+    output: "List created!"
+  },
+
+  {
+    title: "List Indexing",
+    description: "Learn how to access list items.",
+    explanation: "Python indexes start at 0.",
+    challenge: "Print the first item in a list.",
+    example: 'languages = ["Python", "Lua"]\nprint(languages[0])',
+    output: "Python"
+  },
+
+  {
+    title: "List Methods",
+    description: "Learn how to modify lists.",
+    explanation: "Methods such as append() modify lists.",
+    challenge: "Add an item using append().",
+    example: 'languages = ["Python"]\nlanguages.append("Lua")',
+    output: ""
+  },
+
+  {
+    title: "Tuples",
+    description: "Learn about immutable collections.",
+    explanation: "Tuples cannot normally be changed.",
+    challenge: "Create a tuple containing three numbers.",
+    example: "numbers = (1, 2, 3)",
+    output: "Tuple created!"
+  },
+
+  {
+    title: "Dictionaries",
+    description: "Learn key-value pairs.",
+    explanation: "Dictionaries store keys and values.",
+    challenge: "Create a dictionary containing a player's name.",
+    example: 'player = {"name": "Haaris"}',
+    output: "Dictionary created!"
+  },
+
+  {
+    title: "Functions",
+    description: "Learn how to create reusable code.",
+    explanation: "Functions organise reusable code.",
+    challenge: "Create a function called greet.",
+    example: 'def greet():\n    print("Hello!")',
+    output: ""
+  },
+
+  {
+    title: "Parameters",
+    description: "Learn how functions receive information.",
+    explanation: "Parameters are variables inside function definitions.",
+    challenge: "Create a function with a name parameter.",
+    example: 'def greet(name):\n    print("Hello", name)',
+    output: ""
+  },
+
+  {
+    title: "Arguments",
+    description: "Learn how to pass values into functions.",
+    explanation: "Arguments are values passed into functions.",
+    challenge: "Call a function with an argument.",
+    example: 'def greet(name):\n    print("Hello", name)\ngreet("Haaris")',
+    output: "Hello Haaris"
+  },
+
+  {
+    title: "Return Values",
+    description: "Learn how functions return results.",
+    explanation: "return sends a value back.",
+    challenge: "Create a function that returns a value.",
+    example: "def add(a, b):\n    return a + b\n\nprint(add(2, 3))",
+    output: "5"
+  },
+
+  {
+    title: "Error Handling",
+    description: "Learn try and except.",
+    explanation: "try and except handle errors.",
+    challenge: "Create a try/except block.",
+    example: 'try:\n    number = int("hello")\nexcept ValueError:\n    print("Invalid number")',
+    output: "Invalid number"
+  },
+
+  {
+    title: "import and Modules",
+    description: "Learn Python modules.",
+    explanation: "import allows you to use modules.",
+    challenge: "Import the math module.",
+    example: "import math",
+    output: ""
+  },
+
+  {
+    title: "random",
+    description: "Learn random values.",
+    explanation: "random generates random values.",
+    challenge: "Import random and generate a number.",
+    example: "import random\nnumber = random.randint(1, 10)\nprint(number)",
+    output: "A random number"
+  },
+
+  {
+    title: "🏆 Final Python Project",
+    description: "Build a Python project.",
+    explanation: "Combine your Python knowledge.",
+    challenge: "Build a small Python program.",
+    example: 'name = input("What is your name? ")\nprint("Welcome", name)',
+    output: "Python project started!"
+  }
+
+];
+
+
+/* =========================================
+   PYTHON MENU
+========================================= */
+
+const pythonList =
+  document.getElementById(
+    "python-lesson-list"
+  );
+
+pythonLessons.forEach((lesson, index) => {
+
+  const button =
+    document.createElement("button");
+
+  button.className =
+    "python-lesson-btn";
+
+  button.textContent =
+    `Lesson ${index + 1}: ${lesson.title}`;
+
+  button.onclick =
+    function() {
+      openPythonLesson(index);
+    };
+
+  pythonList.appendChild(button);
+
+});
+
+
+let currentPythonLesson = 0;
+
+
+/* =========================================
+   OPEN PYTHON LESSON
+========================================= */
+
+function openPythonLesson(index) {
+
+  currentPythonLesson = index;
+
+  const lesson =
+    pythonLessons[index];
+
+  document.getElementById(
+    "python-lesson-number"
+  ).textContent =
+    `Lesson ${index + 1} of ${pythonLessons.length}`;
+
+  document.getElementById(
+    "python-lesson-title"
+  ).textContent =
+    lesson.title;
+
+  document.getElementById(
+    "python-lesson-description"
+  ).textContent =
+    lesson.description;
+
+  document.getElementById(
+    "python-lesson-explanation"
+  ).textContent =
+    lesson.explanation;
+
+  document.getElementById(
+    "python-lesson-challenge"
+  ).textContent =
+    lesson.challenge;
+
+  document.getElementById(
+    "python-lesson-example"
+  ).textContent =
+    lesson.example;
+
+  document.getElementById(
+    "python-code-input"
+  ).value = "";
+
+  document.getElementById(
+    "python-result"
+  ).textContent = "";
+
+  document.getElementById(
+    "python-result"
+  ).className =
+    "result-msg";
+
+  document.getElementById(
+    "python-output"
+  ).innerHTML = `
+    <span class="placeholder-text">
+      Your Python output will appear here...
+    </span>
+  `;
+
+  showScreen(
+    "python-lesson-screen"
+  );
+
+}
+
+
+/* =========================================
+   PYODIDE
+========================================= */
+
+let pyodide = null;
+
+let pyodideLoading = false;
+
+
+/* =========================================
+   LOAD PYTHON
+========================================= */
+
+async function loadPython() {
+
+  if (pyodide) {
+    return pyodide;
+  }
+
+  if (pyodideLoading) {
+
+    while (!pyodide) {
+      await new Promise(
+        resolve => setTimeout(resolve, 100)
+      );
+    }
+
+    return pyodide;
+
+  }
+
+  pyodideLoading = true;
+
+  const output =
+    document.getElementById(
+      "python-output"
+    );
+
+  output.textContent =
+    "🐍 Loading Python interpreter...";
+
+  try {
+
+    pyodide =
+      await loadPyodide();
+
+    output.textContent =
+      "✅ Python interpreter ready!";
+
+    return pyodide;
+
+  } catch (error) {
+
+    output.textContent =
+      "❌ Failed to load Python.";
+
+    console.error(
+      "Failed to load Python:",
+      error
+    );
+
+    throw error;
+
+  }
+
+}
+
+
+/* =========================================
+   START LOADING PYTHON
+========================================= */
+
+loadPython();
+
+
+/* =========================================
+   RUN PYTHON LESSON
+========================================= */
+
+async function runPythonLesson() {
+
+  const code =
+    document.getElementById(
+      "python-code-input"
+    ).value.trim();
+
+  const output =
+    document.getElementById(
+      "python-output"
+    );
+
+  const result =
+    document.getElementById(
+      "python-result"
+    );
+
+
+  if (code === "") {
+
+    result.textContent =
+      "❌ Please write some Python code first.";
+
+    result.className =
+      "result-msg error";
+
+    return;
+
+  }
+
+
+  result.textContent =
+    "⏳ Running Python...";
+
+  result.className =
+    "result-msg";
+
+
+  try {
+
+    const python =
+      await loadPython();
+
+
+    let capturedOutput = "";
+
+
+    python.setStdout({
+      batched: (text) => {
+        capturedOutput += text;
+      }
+    });
+
+
+    await python.runPythonAsync(code);
+
+
+    output.textContent =
+      capturedOutput ||
+      "✅ Code ran successfully with no printed output.";
+
+
+    result.textContent =
+      "🎉 Your Python code ran successfully!";
+
+    result.className =
+      "result-msg success";
+
+
+  } catch (error) {
+
+    output.textContent =
+      error.toString();
+
+
+    result.textContent =
+      "❌ Your Python code has an error. Check the output.";
+
+    result.className =
+      "result-msg error";
+
+
+    console.error(
+      "Python error:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   NEXT PYTHON LESSON
+========================================= */
+
+function nextPythonLesson() {
+
+  if (
+    currentPythonLesson <
+    pythonLessons.length - 1
+  ) {
+
+    openPythonLesson(
+      currentPythonLesson + 1
+    );
+
+  } else {
+
+    showScreen(
+      "python-menu-screen"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   START ON HOME SCREEN
+========================================= */
+
+showScreen(
+  "main-home-screen"
+);
+
+</script>
+
+
+</body>
+
+</html>
