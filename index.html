@@ -3,501 +3,2338 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Haaris670's Coding Academy</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f7fb;
-  color:#222;
-  min-height:100vh;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.navbar{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 35px;background:#171717;color:white;
-  box-shadow:0 3px 15px rgba(0,0,0,.15);
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+  min-height: 100vh;
 }
-.logo{font-size:23px;font-weight:bold}
-.logo span{color:#4dabf7}
-.nav-button,.back-button{
-  border:0;border-radius:8px;padding:11px 19px;
-  background:#4dabf7;color:white;font-weight:bold;cursor:pointer;
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 35px;
+  background: #171717;
+  color: white;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #4dabf7;
+}
+
+.nav-button,
+.back-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 19px;
+  background: #4dabf7;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nav-button:hover,.back-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2)
+.nav-button:hover,
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-.screen{display:none;min-height:calc(100vh - 70px);padding:42px 25px}
-.screen.active{display:block}
-.main-title{text-align:center;font-size:40px;margin-bottom:12px}
-.subtitle{text-align:center;color:#666;margin-bottom:35px;font-size:19px}
-.language-menu{
-  max-width:603px;margin:35px auto;
-  display:flex;flex-direction:column;gap:15px;
+
+/* ================= SCREENS ================= */
+
+.screen {
+  display: none;
+  min-height: calc(100vh - 70px);
+  padding: 45px 30px;
 }
-.language-card{
-  position:relative;overflow:hidden;border:0;border-radius:7px;
-  min-height:55px;cursor:pointer;color:white;font-size:21px;
-  font-weight:bold;transition:.25s;box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+.screen.active {
+  display: block;
 }
-.language-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.16)}
-.language-card span{position:relative;z-index:2}
-.language-card.html{background:linear-gradient(135deg,#f04423 0 48%,#ff6938 48% 100%)}
-.language-card.css{background:linear-gradient(135deg,#2f4ee8 0 48%,#3479ed 48% 100%)}
-.language-card.python{background:linear-gradient(135deg,#397da8 0 48%,#ffd83d 48% 100%);color:#222}
-.language-card.lua{background:linear-gradient(135deg,#090994 0 48%,#8c8c8c 48% 100%)}
-.lesson-menu{
-  max-width:800px;margin:0 auto;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;
+
+/* ================= HOME ================= */
+
+.main-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 14px;
 }
-.lesson-btn{
-  padding:15px;background:white;border:2px solid #e2e5ea;
-  border-radius:10px;text-align:left;font-weight:bold;cursor:pointer;
-  transition:.2s;
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 19px;
 }
-.lesson-btn:hover{border-color:#4dabf7;transform:translateY(-2px)}
-.workspace{
-  max-width:1250px;margin:0 auto;display:grid;
-  grid-template-columns:1fr 1fr;gap:25px;text-align:left;
+
+.language-menu {
+  max-width: 700px;
+  margin: 35px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.panel{
-  background:white;border-radius:15px;padding:28px;
-  box-shadow:0 5px 22px rgba(0,0,0,.08);
+
+.language-card {
+  border: 0;
+  border-radius: 9px;
+  min-height: 62px;
+  cursor: pointer;
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  transition: 0.25s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
-.lesson-number{
-  display:inline-block;padding:7px 13px;border-radius:20px;
-  background:#e7f5ff;color:#1971c2;font-weight:bold;margin-bottom:12px;
+
+.language-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }
-.panel h2{margin-bottom:10px}
-.panel p{line-height:1.6;color:#555}
-.learn-box,.challenge-box{
-  margin-top:22px;padding:18px;border-radius:10px;
+
+.language-card.html {
+  background: linear-gradient(
+    135deg,
+    #f04423 0 48%,
+    #ff6938 48% 100%
+  );
 }
-.learn-box{background:#f1f8ff;border-left:5px solid #339af0}
-.challenge-box{background:#f8f9fa}
-.learn-box h3,.challenge-box h3{margin-bottom:9px;color:#222}
-.example{
-  display:block;margin-top:12px;padding:15px;background:#202124;
-  color:#eee;border-radius:8px;white-space:pre-wrap;
-  font-family:monospace;line-height:1.5;
+
+.language-card.css {
+  background: linear-gradient(
+    135deg,
+    #2f4ee8 0 48%,
+    #3479ed 48% 100%
+  );
 }
-textarea{
-  width:100%;min-height:190px;margin-top:14px;padding:14px;
-  border:2px solid #ddd;border-radius:8px;font-family:monospace;
-  resize:vertical;
+
+.language-card.python {
+  background: linear-gradient(
+    135deg,
+    #397da8 0 48%,
+    #ffd83d 48% 100%
+  );
+  color: #222;
 }
-textarea:focus{outline:0;border-color:#4dabf7}
-.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.action-button{
-  padding:11px 18px;border:0;border-radius:8px;
-  background:#1971c2;color:white;font-weight:bold;cursor:pointer;
+
+.language-card.lua {
+  background: linear-gradient(
+    135deg,
+    #090994 0 48%,
+    #8c8c8c 48% 100%
+  );
 }
-.next-button{width:100%;margin-top:15px}
-.result{margin-top:12px;padding:10px;border-radius:7px;font-weight:bold}
-.preview{
-  min-height:420px;padding:25px;border:2px solid #e1e4e8;
-  border-radius:10px;overflow:auto;background:white;
+
+/* ================= LESSON MENU ================= */
+
+.lesson-menu {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  );
+  gap: 14px;
 }
-.output{
-  min-height:420px;padding:20px;border-radius:10px;
-  background:#151515;color:#00ff66;font-family:monospace;
-  white-space:pre-wrap;overflow:auto;
+
+.lesson-btn {
+  padding: 17px;
+  background: white;
+  border: 2px solid #e2e5ea;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.preview-demo{
-  padding:30px;border:2px solid #222;border-radius:8px;
-  background:white;min-height:300px;
+
+.lesson-btn:hover {
+  border-color: #4dabf7;
+  transform: translateY(-2px);
 }
-.home-link{margin-bottom:25px}
-.course-count{text-align:center;color:#777;margin-top:-20px;margin-bottom:25px}
-@media(max-width:800px){
-  .workspace{grid-template-columns:1fr}
-  .navbar{padding:15px 20px}
-  .logo{font-size:23px}
-  .main-title{font-size:31px}
-  .screen{padding:30px 15px}
+
+/* ================= WORKSPACE ================= */
+
+.workspace {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  text-align: left;
 }
+
+.panel {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-number {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #e7f5ff;
+  color: #1971c2;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.panel h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.panel p {
+  line-height: 1.6;
+  color: #555;
+  font-size: 16px;
+}
+
+/* ================= LEARN BOX ================= */
+
+.learn-box,
+.challenge-box {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.learn-box {
+  background: #f1f8ff;
+  border-left: 5px solid #339af0;
+}
+
+.challenge-box {
+  background: #f8f9fa;
+}
+
+.learn-box h3,
+.challenge-box h3 {
+  margin-bottom: 9px;
+  color: #222;
+}
+
+/* ================= CODE EXAMPLE ================= */
+
+.example {
+  display: block;
+  margin-top: 12px;
+  padding: 15px;
+  background: #202124;
+  color: #eee;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  line-height: 1.5;
+  font-size: 14px;
+  overflow: auto;
+}
+
+/* ================= TEXTAREA ================= */
+
+textarea {
+  width: 100%;
+  min-height: 210px;
+  margin-top: 14px;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 0;
+  border-color: #4dabf7;
+}
+
+/* ================= BUTTONS ================= */
+
+.action-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.action-button {
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #1971c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(25, 113, 194, 0.2);
+}
+
+.next-button {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* ================= RESULT ================= */
+
+.result {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+/* ================= PREVIEW ================= */
+
+.preview {
+  min-height: 450px;
+  padding: 25px;
+  border: 2px solid #e1e4e8;
+  border-radius: 10px;
+  overflow: auto;
+  background: white;
+}
+
+/* ================= OUTPUT ================= */
+
+.output {
+  min-height: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #151515;
+  color: #00ff66;
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* ================= CSS PREVIEW ================= */
+
+.preview-demo {
+  padding: 30px;
+  border: 2px solid #222;
+  border-radius: 8px;
+  background: white;
+  min-height: 300px;
+}
+
+/* ================= OTHER ================= */
+
+.home-link {
+  margin-bottom: 25px;
+}
+
+.course-count {
+  text-align: center;
+  color: #777;
+  margin-top: -20px;
+  margin-bottom: 25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+  .workspace {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .main-title {
+    font-size: 34px;
+  }
+
+  .screen {
+    padding: 35px 20px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .navbar {
+    padding: 14px 15px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .nav-button,
+  .back-button {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+  .screen {
+    padding: 30px 15px;
+  }
+
+  .lesson-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 22px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
-  <div class="logo">Haaris670's <span>Coding Academy</span></div>
-  <button class="nav-button" onclick="showScreen('home')">Home</button>
+
+  <div class="logo">
+    Haaris670's <span>Coding Academy</span>
+  </div>
+
+  <button
+    class="nav-button"
+    onclick="showScreen('home')">
+    Home
+  </button>
+
 </header>
 
-<!-- HOME -->
+
+<!-- ================= HOME ================= -->
+
 <section id="home" class="screen active">
-  <h1 class="main-title">Welcome to my Coding Academy!</h1>
-  <p class="subtitle">Choose a language and start learning how to code.</p>
+
+  <h1 class="main-title">
+    Welcome to my Coding Academy!
+  </h1>
+
+  <p class="subtitle">
+    Choose a language and start learning how to code.
+  </p>
 
   <div class="language-menu">
-    <button class="language-card html" onclick="showScreen('htmlMenu')"><span>HTML</span></button>
-    <button class="language-card css" onclick="showScreen('cssMenu')"><span>CSS</span></button>
-    <button class="language-card python" onclick="showScreen('pythonMenu')"><span>Python</span></button>
-    <button class="language-card lua" onclick="showScreen('luaMenu')"><span>Lua</span></button>
+
+    <button
+      class="language-card html"
+      onclick="showScreen('htmlMenu')">
+      HTML
+    </button>
+
+    <button
+      class="language-card css"
+      onclick="showScreen('cssMenu')">
+      CSS
+    </button>
+
+    <button
+      class="language-card python"
+      onclick="showScreen('pythonMenu')">
+      Python
+    </button>
+
+    <button
+      class="language-card lua"
+      onclick="showScreen('luaMenu')">
+      Lua
+    </button>
+
   </div>
+
 </section>
 
-<!-- HTML MENU -->
+
+<!-- ================= HTML MENU ================= -->
+
 <section id="htmlMenu" class="screen">
-  <button class="back-button home-link" onclick="showScreen('home')">← Home</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('home')">
+    ← Home
+  </button>
+
   <h1 class="main-title">🟠 HTML</h1>
-  <p class="subtitle">Learn the structure of webpages.</p>
+
+  <p class="subtitle">
+    Learn the structure of webpages.
+  </p>
+
   <div id="htmlLessons" class="lesson-menu"></div>
+
 </section>
 
-<!-- CSS MENU -->
+
+<!-- ================= CSS MENU ================= -->
+
 <section id="cssMenu" class="screen">
-  <button class="back-button home-link" onclick="showScreen('home')">← Home</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('home')">
+    ← Home
+  </button>
+
   <h1 class="main-title">🔵 CSS</h1>
-  <p class="subtitle">Learn how to style and design webpages.</p>
+
+  <p class="subtitle">
+    Learn how to style and design webpages.
+  </p>
+
   <div id="cssLessons" class="lesson-menu"></div>
+
 </section>
 
-<!-- PYTHON MENU -->
+
+<!-- ================= PYTHON MENU ================= -->
+
 <section id="pythonMenu" class="screen">
-  <button class="back-button home-link" onclick="showScreen('home')">← Home</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('home')">
+    ← Home
+  </button>
+
   <h1 class="main-title">🐍 Python</h1>
-  <p class="subtitle">Learn Python programming step by step.</p>
+
+  <p class="subtitle">
+    Learn Python programming step by step.
+  </p>
+
   <div id="pythonLessons" class="lesson-menu"></div>
+
 </section>
 
-<!-- LUA MENU -->
+
+<!-- ================= LUA MENU ================= -->
+
 <section id="luaMenu" class="screen">
-  <button class="back-button home-link" onclick="showScreen('home')">← Home</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('home')">
+    ← Home
+  </button>
+
   <h1 class="main-title">🔷 Lua</h1>
-  <p class="subtitle">Learn Lua programming step by step.</p>
-  <p class="course-count">25 lessons</p>
+
+  <p class="subtitle">
+    Learn Lua programming step by step.
+  </p>
+
+  <p class="course-count">
+    25 lessons
+  </p>
+
   <div id="luaLessons" class="lesson-menu"></div>
+
 </section>
 
-<!-- HTML LESSON -->
+
+<!-- ================= HTML LESSON ================= -->
+
 <section id="htmlLesson" class="screen">
-  <button class="back-button home-link" onclick="showScreen('htmlMenu')">← HTML Lessons</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('htmlMenu')">
+    ← HTML Lessons
+  </button>
+
   <div class="workspace">
+
     <div class="panel">
+
       <div id="htmlNum" class="lesson-number"></div>
+
       <h2 id="htmlTitle"></h2>
+
       <p id="htmlDesc"></p>
+
       <div class="learn-box">
+
         <h3>📖 What You'll Learn</h3>
+
         <p id="htmlExplain"></p>
+
       </div>
+
       <div class="challenge-box">
+
         <h3>🎯 Your Challenge</h3>
+
         <p id="htmlChallenge"></p>
-        <code id="htmlExample" class="example"></code>
-        <textarea id="htmlInput" placeholder="Type your HTML here..."></textarea>
+
+        <code
+          id="htmlExample"
+          class="example">
+        </code>
+
+        <textarea
+          id="htmlInput"
+          placeholder="Type your HTML here...">
+        </textarea>
+
         <div class="action-row">
-          <button class="action-button" onclick="runHTML()">▶ Run HTML</button>
+
+          <button
+            class="action-button"
+            onclick="runHTML()">
+            ▶ Run HTML
+          </button>
+
         </div>
+
         <div id="htmlResult" class="result"></div>
+
       </div>
-      <button class="action-button next-button" onclick="nextHTML()">Next Lesson →</button>
+
+      <button
+        class="action-button next-button"
+        onclick="nextHTML()">
+        Next Lesson →
+      </button>
+
     </div>
+
+
     <div class="panel">
+
       <h2>🖥️ Live Preview</h2>
-      <div id="htmlPreview" class="preview"></div>
+
+      <div
+        id="htmlPreview"
+        class="preview">
+
+        Your HTML preview will appear here.
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- CSS LESSON -->
+
+<!-- ================= CSS LESSON ================= -->
+
 <section id="cssLesson" class="screen">
-  <button class="back-button home-link" onclick="showScreen('cssMenu')">← CSS Lessons</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('cssMenu')">
+    ← CSS Lessons
+  </button>
+
   <div class="workspace">
+
     <div class="panel">
+
       <div id="cssNum" class="lesson-number"></div>
+
       <h2 id="cssTitle"></h2>
+
       <p id="cssDesc"></p>
+
       <div class="learn-box">
+
         <h3>📖 What You'll Learn</h3>
+
         <p id="cssExplain"></p>
+
       </div>
+
       <div class="challenge-box">
+
         <h3>🎯 Your Challenge</h3>
+
         <p id="cssChallenge"></p>
-        <code id="cssExample" class="example"></code>
-        <textarea id="cssInput" placeholder="Type your CSS here..."></textarea>
+
+        <code
+          id="cssExample"
+          class="example">
+        </code>
+
+        <textarea
+          id="cssInput"
+          placeholder="Type your CSS here...">
+        </textarea>
+
         <div class="action-row">
-          <button class="action-button" onclick="runCSS()">▶ Run CSS</button>
-          <button class="action-button" onclick="resetCSS()">Reset</button>
+
+          <button
+            class="action-button"
+            onclick="runCSS()">
+            ▶ Run CSS
+          </button>
+
+          <button
+            class="action-button"
+            onclick="resetCSS()">
+            Reset
+          </button>
+
         </div>
+
         <div id="cssResult" class="result"></div>
+
       </div>
-      <button class="action-button next-button" onclick="nextCSS()">Next Lesson →</button>
+
+      <button
+        class="action-button next-button"
+        onclick="nextCSS()">
+        Next Lesson →
+      </button>
+
     </div>
+
+
     <div class="panel">
+
       <h2>🖥️ CSS Preview</h2>
-      <div id="cssPreview" class="preview"></div>
+
+      <div
+        id="cssPreview"
+        class="preview">
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- PYTHON LESSON -->
+
+<!-- ================= PYTHON LESSON ================= -->
+
 <section id="pythonLesson" class="screen">
-  <button class="back-button home-link" onclick="showScreen('pythonMenu')">← Python Lessons</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('pythonMenu')">
+    ← Python Lessons
+  </button>
+
   <div class="workspace">
+
     <div class="panel">
+
       <div id="pythonNum" class="lesson-number"></div>
+
       <h2 id="pythonTitle"></h2>
+
       <p id="pythonDesc"></p>
+
       <div class="learn-box">
+
         <h3>📖 What You'll Learn</h3>
+
         <p id="pythonExplain"></p>
+
       </div>
+
       <div class="challenge-box">
+
         <h3>🎯 Your Challenge</h3>
+
         <p id="pythonChallenge"></p>
-        <code id="pythonExample" class="example"></code>
-        <textarea id="pythonInput" placeholder="Type your Python code here..."></textarea>
-        <button class="action-button" onclick="runPython()">▶ Run Python</button>
+
+        <code
+          id="pythonExample"
+          class="example">
+        </code>
+
+        <textarea
+          id="pythonInput"
+          placeholder="Type your Python code here...">
+        </textarea>
+
+        <button
+          class="action-button"
+          onclick="runPython()">
+          ▶ Run Python
+        </button>
+
         <div id="pythonResult" class="result"></div>
+
       </div>
-      <button class="action-button next-button" onclick="nextPython()">Next Lesson →</button>
+
+      <button
+        class="action-button next-button"
+        onclick="nextPython()">
+        Next Lesson →
+      </button>
+
     </div>
+
+
     <div class="panel">
+
       <h2>🖥️ Python Output</h2>
-      <div id="pythonOutput" class="output">Your Python output will appear here.</div>
+
+      <div
+        id="pythonOutput"
+        class="output">
+
+        Your Python output will appear here.
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- LUA LESSON -->
+
+<!-- ================= LUA LESSON ================= -->
+
 <section id="luaLesson" class="screen">
-  <button class="back-button home-link" onclick="showScreen('luaMenu')">← Lua Lessons</button>
+
+  <button
+    class="back-button home-link"
+    onclick="showScreen('luaMenu')">
+    ← Lua Lessons
+  </button>
+
   <div class="workspace">
+
     <div class="panel">
+
       <div id="luaNum" class="lesson-number"></div>
+
       <h2 id="luaTitle"></h2>
+
       <p id="luaDesc"></p>
+
       <div class="learn-box">
+
         <h3>📖 What You'll Learn</h3>
+
         <p id="luaExplain"></p>
+
       </div>
+
       <div class="challenge-box">
+
         <h3>🎯 Your Challenge</h3>
+
         <p id="luaChallenge"></p>
-        <code id="luaExample" class="example"></code>
-        <textarea id="luaInput" placeholder="Type your Lua code here..."></textarea>
-        <button class="action-button" onclick="runLua()">▶ Run Lua</button>
+
+        <code
+          id="luaExample"
+          class="example">
+        </code>
+
+        <textarea
+          id="luaInput"
+          placeholder="Type your Lua code here...">
+        </textarea>
+
+        <button
+          class="action-button"
+          onclick="runLua()">
+          ▶ Run Lua
+        </button>
+
         <div id="luaResult" class="result"></div>
+
       </div>
-      <button class="action-button next-button" onclick="nextLua()">Next Lesson →</button>
+
+      <button
+        class="action-button next-button"
+        onclick="nextLua()">
+        Next Lesson →
+      </button>
+
     </div>
+
+
     <div class="panel">
+
       <h2>🖥️ Lua Output</h2>
-      <div id="luaOutput" class="output">Your Lua output will appear here.</div>
+
+      <div
+        id="luaOutput"
+        class="output">
+
+        Your Lua output will appear here.
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
 
 <script>
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
 
-/* ================= HTML ================= */
-const htmlLessons=[
-["HTML Basics","Learn the basic structure of HTML.","HTML is the language used to structure content on webpages.","Create a heading and a paragraph.","<h1>Hello!</h1>\\n<p>Welcome to my website.</p>"],
-["Headings","Learn HTML heading elements.","Headings use h1 through h6, with h1 being the main heading.","Create an h1 heading.","<h1>My Website</h1>"],
-["Paragraphs","Learn how to write paragraphs.","The p element is used for normal blocks of text.","Create a paragraph.","<p>Hello World!</p>"],
-["Links","Learn how to create clickable links.","The a element creates links using the href attribute.","Create a link.","<a href='https://example.com'>Visit</a>"],
-["Images","Learn how to display images.","The img element uses src and alt attributes.","Create an image.","<img src='image.jpg' alt='My Image'>"],
-["Lists","Learn ordered and unordered lists.","Use ul for bullet lists and ol for numbered lists.","Create a list with three items.","<ul>\\n<li>Apple</li>\\n<li>Banana</li>\\n<li>Orange</li>\\n</ul>"],
-["Divs","Learn how to group content.","The div element is a general-purpose container.","Create a div with a heading.","<div>\\n<h2>Hello</h2>\\n</div>"],
-["Classes","Learn how classes work.","Classes allow CSS to target specific elements.","Create an element with class='box'.","<div class='box'>Hello</div>"],
-["Tables","Learn basic HTML tables.","Tables organise information into rows and cells.","Create a table with one row.","<table>\\n<tr><td>Hello</td></tr>\\n</table>"],
-["Forms","Learn how forms collect information.","Forms can contain inputs and buttons.","Create a text input.","<form><input type='text'></form>"],
-["Buttons","Learn how to create buttons.","The button element creates a clickable button.","Create a button.","<button>Click Me</button>"],
-["Semantic HTML","Learn meaningful HTML elements.","Semantic elements describe their purpose, such as main, header and section.","Create a main section.","<main><section>Hello</section></main>"],
-["Document Structure","Learn the complete HTML structure.","HTML documents normally contain html, head and body elements.","Create a basic document.","<!DOCTYPE html>\\n<html>\\n<head></head>\\n<body></body>\\n</html>"],
-["Attributes","Learn how HTML attributes add information.","Attributes provide extra information to elements.","Add a class attribute.","<p class='text'>Hello</p>"],
-["Final HTML Project","Build a mini webpage.","Combine headings, paragraphs, links, images and other HTML concepts.","Create your own mini webpage.","<h1>My Website</h1>\\n<p>Welcome!</p>"]
-];
-let htmlIndex=0;
+/* =====================================================
+   SCREEN SYSTEM
+===================================================== */
 
-function buildMenu(data,elementId,open){
-  const box=document.getElementById(elementId);
-  data.forEach((x,i)=>{
-    const b=document.createElement('button');
-    b.className='lesson-btn';
-    b.textContent=`Lesson ${i+1}: ${x[0]}`;
-    b.onclick=()=>open(i);
-    box.appendChild(b);
+function showScreen(id) {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
-}
-function openHTML(i){
-  htmlIndex=i;const x=htmlLessons[i];
-  htmlNum.textContent=`Lesson ${i+1} of ${htmlLessons.length}`;
-  htmlTitle.textContent=x[0];htmlDesc.textContent=x[1];
-  htmlExplain.textContent=x[2];htmlChallenge.textContent=x[3];
-  htmlExample.textContent=x[4];htmlInput.value='';
-  htmlResult.textContent='';htmlPreview.innerHTML='<p>Your HTML preview will appear here.</p>';
-  showScreen('htmlLesson');
-}
-function runHTML(){
-  const code=htmlInput.value.trim();
-  htmlPreview.innerHTML=code||'<p>Please enter HTML.</p>';
-  htmlResult.textContent=code?'✅ HTML preview updated!':'⚠️ Enter some HTML first.';
-}
-function nextHTML(){if(htmlIndex<htmlLessons.length-1)openHTML(htmlIndex+1)}
 
-/* ================= CSS ================= */
-const cssLessons=[
-["CSS Basics","Learn what CSS is.","CSS controls the appearance and design of HTML elements.","Change the text colour.","color: blue;"],
-["Selectors","Learn how CSS targets elements.","Selectors tell CSS which HTML elements should be styled.","Select all paragraphs.","p { color: blue; }"],
-["Colors","Learn the color property.","The color property changes text colour.","Make text red.","color: red;"],
-["Background Color","Learn background colours.","background-color changes an element's background.","Use a yellow background.","background-color: yellow;"],
-["Font Size","Change text size.","font-size controls how large text appears.","Make the heading 40px.","font-size: 40px;"],
-["Font Family","Change fonts.","font-family changes the typeface.","Use Arial.","font-family: Arial;"],
-["Text Alignment","Align text.","text-align can align text left, right or centre.","Centre the text.","text-align: center;"],
-["Borders","Add borders.","The border property creates a line around an element.","Add a black border.","border: 2px solid black;"],
-["Padding","Add inner space.","Padding creates space between content and the border.","Add 20px padding.","padding: 20px;"],
-["Margin","Add outer space.","Margin creates space outside an element.","Add 20px margin.","margin: 20px;"],
-["Box Model Challenge","Combine box model properties.","The box model includes content, padding, border and margin.","Create a styled box.","padding: 20px;\\nborder: 2px solid black;\\nmargin: 20px;"],
-["Box Shadow","Add shadows.","box-shadow creates a shadow around an element.","Add a shadow.","box-shadow: 5px 5px 10px gray;"],
-["Opacity","Control transparency.","opacity controls how transparent an element is.","Make it half transparent.","opacity: 0.5;"],
-["Transition","Create smooth changes.","transition makes CSS changes animate smoothly.","Add a 0.3 second transition.","transition: 0.3s;"],
-[":hover","React to hovering.","The :hover pseudo-class applies styles while hovering.","Change the button on hover.","background: red;"],
-["Transform","Transform elements.","transform can move, rotate or scale elements.","Scale the element.","transform: scale(1.1);"],
-["scale()","Resize elements.","scale changes the size of an element.","Make it larger.","transform: scale(1.1);"],
-["rotate()","Rotate elements.","rotate turns an element around.","Rotate by 10 degrees.","transform: rotate(10deg);"],
-["Combining Effects","Combine transitions and transforms.","Multiple CSS properties can create interactive effects.","Create a smooth hover effect.","transition: .3s;\\ntransform: scale(1.1);"],
-["Button Design","Design buttons.","Buttons can use padding, colours, borders and effects.","Style a button.","background: blue;\\ncolor: white;\\npadding: 10px;"],
-["Visual Effects Challenge","Combine visual effects.","Use several properties to make a polished card.","Create a card with a shadow.","box-shadow: 5px 5px 10px gray;\\nborder-radius: 10px;"],
-["Display","Control element display.","display controls how an element participates in layout.","Use block display.","display: block;"],
-["Flexbox","Learn Flexbox.","Flexbox is a one-dimensional layout system.","Create a flex container.","display: flex;"],
-["justify-content","Align Flexbox items.","justify-content controls main-axis alignment.","Centre the items.","justify-content: center;"],
-["align-items","Align items vertically.","align-items controls cross-axis alignment.","Centre items.","align-items: center;"],
-["flex-direction","Change Flexbox direction.","flex-direction controls row or column layouts.","Use a column.","flex-direction: column;"],
-["CSS Grid","Learn CSS Grid.","Grid is a two-dimensional layout system.","Create a grid.","display: grid;"],
-["grid-template-columns","Create grid columns.","This property defines grid columns.","Create three equal columns.","grid-template-columns: 1fr 1fr 1fr;"],
-["Responsive Design","Make layouts responsive.","Media queries allow designs to adapt to screen sizes.","Create a 600px media query.","@media (max-width: 600px) { }"],
-["Positioning and z-index","Position and layer elements.","position controls placement and z-index controls stacking order.","Position an element and layer it.","position: absolute;\\nz-index: 10;"],
-["Final CSS Project","Build a complete CSS design.","Combine your CSS skills into a polished webpage.","Create your own styled webpage.","color: white;\\nbackground: #222;\\npadding: 20px;"]
+}
+
+
+/* =====================================================
+   HTML LESSONS
+===================================================== */
+
+const htmlLessons = [
+
+  [
+    "HTML Basics",
+    "Learn the basic structure of HTML.",
+    "HTML is the language used to structure content on webpages.",
+    "Create a heading and a paragraph.",
+    `<h1>Hello!</h1>
+<p>Welcome to my website.</p>`
+  ],
+
+  [
+    "Headings",
+    "Learn HTML heading elements.",
+    "Headings use h1 through h6, with h1 being the main heading.",
+    "Create an h1 heading.",
+    `<h1>My Website</h1>`
+  ],
+
+  [
+    "Paragraphs",
+    "Learn how to write paragraphs.",
+    "The p element is used for normal blocks of text.",
+    "Create a paragraph.",
+    `<p>Hello World!</p>`
+  ],
+
+  [
+    "Links",
+    "Learn how to create clickable links.",
+    "The a element creates links using the href attribute.",
+    "Create a link.",
+    `<a href="https://example.com">Visit</a>`
+  ],
+
+  [
+    "Images",
+    "Learn how to display images.",
+    "The img element uses src and alt attributes.",
+    "Create an image.",
+    `<img src="image.jpg" alt="My Image">`
+  ],
+
+  [
+    "Lists",
+    "Learn ordered and unordered lists.",
+    "Use ul for bullet lists and ol for numbered lists.",
+    "Create a list with three items.",
+    `<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ul>`
+  ],
+
+  [
+    "Divs",
+    "Learn how to group content.",
+    "The div element is a general-purpose container.",
+    "Create a div with a heading.",
+    `<div>
+  <h2>Hello</h2>
+</div>`
+  ],
+
+  [
+    "Classes",
+    "Learn how classes work.",
+    "Classes allow CSS to target specific elements.",
+    "Create an element with class='box'.",
+    `<div class="box">Hello</div>`
+  ],
+
+  [
+    "Tables",
+    "Learn basic HTML tables.",
+    "Tables organise information into rows and cells.",
+    "Create a table with one row.",
+    `<table>
+  <tr>
+    <td>Hello</td>
+  </tr>
+</table>`
+  ],
+
+  [
+    "Forms",
+    "Learn how forms collect information.",
+    "Forms can contain inputs and buttons.",
+    "Create a text input.",
+    `<form>
+  <input type="text">
+</form>`
+  ],
+
+  [
+    "Buttons",
+    "Learn how to create buttons.",
+    "The button element creates a clickable button.",
+    "Create a button.",
+    `<button>Click Me</button>`
+  ],
+
+  [
+    "Semantic HTML",
+    "Learn meaningful HTML elements.",
+    "Semantic elements describe their purpose, such as main, header and section.",
+    "Create a main section.",
+    `<main>
+  <section>Hello</section>
+</main>`
+  ],
+
+  [
+    "Document Structure",
+    "Learn the complete HTML structure.",
+    "HTML documents normally contain html, head and body elements.",
+    "Create a basic document.",
+    `<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>`
+  ],
+
+  [
+    "Attributes",
+    "Learn how HTML attributes add information.",
+    "Attributes provide extra information to elements.",
+    "Add a class attribute.",
+    `<p class="text">Hello</p>`
+  ],
+
+  [
+    "Final HTML Project",
+    "Build a mini webpage.",
+    "Combine headings, paragraphs, links, images and other HTML concepts.",
+    "Create your own mini webpage.",
+    `<h1>My Website</h1>
+<p>Welcome!</p>`
+  ]
+
 ];
-let cssIndex=0;
-function openCSS(i){
-  cssIndex=i;const x=cssLessons[i];
-  cssNum.textContent=`Lesson ${i+1} of ${cssLessons.length}`;
-  cssTitle.textContent=x[0];cssDesc.textContent=x[1];
-  cssExplain.textContent=x[2];cssChallenge.textContent=x[3];
-  cssExample.textContent=x[4];cssInput.value='';cssResult.textContent='';
-  resetCSS();showScreen('cssLesson');
+
+let htmlIndex = 0;
+
+
+/* =====================================================
+   CSS LESSONS
+===================================================== */
+
+const cssLessons = [
+
+  [
+    "CSS Basics",
+    "Learn what CSS is.",
+    "CSS controls the appearance and design of HTML elements.",
+    "Change the text colour.",
+    `color: blue;`
+  ],
+
+  [
+    "Selectors",
+    "Learn how CSS targets elements.",
+    "Selectors tell CSS which HTML elements should be styled.",
+    "Select all paragraphs.",
+    `p {
+  color: blue;
+}`
+  ],
+
+  [
+    "Colors",
+    "Learn the color property.",
+    "The color property changes text colour.",
+    "Make text red.",
+    `color: red;`
+  ],
+
+  [
+    "Background Color",
+    "Learn background colours.",
+    "background-color changes an element's background.",
+    "Use a yellow background.",
+    `background-color: yellow;`
+  ],
+
+  [
+    "Font Size",
+    "Change text size.",
+    "font-size controls how large text appears.",
+    "Make the heading 40px.",
+    `font-size: 40px;`
+  ],
+
+  [
+    "Font Family",
+    "Change fonts.",
+    "font-family changes the typeface.",
+    "Use Arial.",
+    `font-family: Arial;`
+  ],
+
+  [
+    "Text Alignment",
+    "Align text.",
+    "text-align can align text left, right or centre.",
+    "Centre the text.",
+    `text-align: center;`
+  ],
+
+  [
+    "Borders",
+    "Add borders.",
+    "The border property creates a line around an element.",
+    "Add a black border.",
+    `border: 2px solid black;`
+  ],
+
+  [
+    "Padding",
+    "Add inner space.",
+    "Padding creates space between content and the border.",
+    "Add 20px padding.",
+    `padding: 20px;`
+  ],
+
+  [
+    "Margin",
+    "Add outer space.",
+    "Margin creates space outside an element.",
+    "Add 20px margin.",
+    `margin: 20px;`
+  ],
+
+  [
+    "Box Model Challenge",
+    "Combine box model properties.",
+    "The box model includes content, padding, border and margin.",
+    "Create a styled box.",
+    `padding: 20px;
+border: 2px solid black;
+margin: 20px;`
+  ],
+
+  [
+    "Box Shadow",
+    "Add shadows.",
+    "box-shadow creates a shadow around an element.",
+    "Add a shadow.",
+    `box-shadow: 5px 5px 10px gray;`
+  ],
+
+  [
+    "Opacity",
+    "Control transparency.",
+    "opacity controls how transparent an element is.",
+    "Make it half transparent.",
+    `opacity: 0.5;`
+  ],
+
+  [
+    "Transition",
+    "Create smooth changes.",
+    "transition makes CSS changes animate smoothly.",
+    "Add a 0.3 second transition.",
+    `transition: 0.3s;`
+  ],
+
+  [
+    ":hover",
+    "React to hovering.",
+    "The :hover pseudo-class applies styles while hovering.",
+    "Change the button on hover.",
+    `background: red;`
+  ],
+
+  [
+    "Transform",
+    "Transform elements.",
+    "transform can move, rotate or scale elements.",
+    "Scale the element.",
+    `transform: scale(1.1);`
+  ],
+
+  [
+    "scale()",
+    "Resize elements.",
+    "scale changes the size of an element.",
+    "Make it larger.",
+    `transform: scale(1.1);`
+  ],
+
+  [
+    "rotate()",
+    "Rotate elements.",
+    "rotate turns an element around.",
+    "Rotate by 10 degrees.",
+    `transform: rotate(10deg);`
+  ],
+
+  [
+    "Combining Effects",
+    "Combine transitions and transforms.",
+    "Multiple CSS properties can create interactive effects.",
+    "Create a smooth hover effect.",
+    `transition: 0.3s;
+transform: scale(1.1);`
+  ],
+
+  [
+    "Button Design",
+    "Design buttons.",
+    "Buttons can use padding, colours, borders and effects.",
+    "Style a button.",
+    `background: blue;
+color: white;
+padding: 10px;`
+  ],
+
+  [
+    "Visual Effects Challenge",
+    "Combine visual effects.",
+    "Use several properties to make a polished card.",
+    "Create a card with a shadow.",
+    `box-shadow: 5px 5px 10px gray;
+border-radius: 10px;`
+  ],
+
+  [
+    "Display",
+    "Control element display.",
+    "display controls how an element participates in layout.",
+    "Use block display.",
+    `display: block;`
+  ],
+
+  [
+    "Flexbox",
+    "Learn Flexbox.",
+    "Flexbox is a one-dimensional layout system.",
+    "Create a flex container.",
+    `display: flex;`
+  ],
+
+  [
+    "justify-content",
+    "Align Flexbox items.",
+    "justify-content controls main-axis alignment.",
+    "Centre the items.",
+    `justify-content: center;`
+  ],
+
+  [
+    "align-items",
+    "Align items vertically.",
+    "align-items controls cross-axis alignment.",
+    "Centre items.",
+    `align-items: center;`
+  ],
+
+  [
+    "flex-direction",
+    "Change Flexbox direction.",
+    "flex-direction controls row or column layouts.",
+    "Use a column.",
+    `flex-direction: column;`
+  ],
+
+  [
+    "CSS Grid",
+    "Learn CSS Grid.",
+    "Grid is a two-dimensional layout system.",
+    "Create a grid.",
+    `display: grid;`
+  ],
+
+  [
+    "grid-template-columns",
+    "Create grid columns.",
+    "This property defines grid columns.",
+    "Create three equal columns.",
+    `grid-template-columns: 1fr 1fr 1fr;`
+  ],
+
+  [
+    "Responsive Design",
+    "Make layouts responsive.",
+    "Media queries allow designs to adapt to screen sizes.",
+    "Create a 600px media query.",
+    `@media (max-width: 600px) {
+}`
+  ],
+
+  [
+    "Positioning and z-index",
+    "Position and layer elements.",
+    "position controls placement and z-index controls stacking order.",
+    "Position an element and layer it.",
+    `position: absolute;
+z-index: 10;`
+  ],
+
+  [
+    "Final CSS Project",
+    "Build a complete CSS design.",
+    "Combine your CSS skills into a polished webpage.",
+    "Create your own styled webpage.",
+    `color: white;
+background: #222;
+padding: 20px;`
+  ]
+
+];
+
+let cssIndex = 0;
+
+
+/* =====================================================
+   PYTHON LESSONS
+===================================================== */
+
+const pythonLessons = [
+
+  [
+    "Variables",
+    "Learn variables.",
+    "Variables store values.",
+    "Create a name variable.",
+    `name = "Haaris"
+print(name)`
+  ],
+
+  [
+    "Printing",
+    "Learn print().",
+    "print() displays information.",
+    "Print Hello Python.",
+    `print("Hello Python")`
+  ],
+
+  [
+    "Strings",
+    "Learn text values.",
+    "Strings store text.",
+    "Create a greeting.",
+    `message = "Hello"`
+  ],
+
+  [
+    "Numbers",
+    "Learn numbers.",
+    "Python supports integers and decimal numbers.",
+    "Create a number.",
+    `coins = 100`
+  ],
+
+  [
+    "Input",
+    "Ask the user for information.",
+    "input() receives text from the user.",
+    "Ask for a name.",
+    `name = input("Name: ")`
+  ],
+
+  [
+    "If Statements",
+    "Make decisions.",
+    "if runs code when a condition is true.",
+    "Check a value.",
+    `if coins > 10:
+    print("Enough")`
+  ],
+
+  [
+    "Else",
+    "Handle another condition.",
+    "else runs when the if condition is false.",
+    "Add an else.",
+    `else:
+    print("Not enough")`
+  ],
+
+  [
+    "Elif",
+    "Check multiple conditions.",
+    "elif lets you test another condition.",
+    "Use elif.",
+    `elif coins == 10:`
+  ],
+
+  [
+    "For Loops",
+    "Repeat code.",
+    "for loops repeat over a sequence.",
+    "Loop five times.",
+    `for i in range(5):
+    print(i)`
+  ],
+
+  [
+    "While Loops",
+    "Repeat while true.",
+    "while loops continue while a condition is true.",
+    "Create a while loop.",
+    `while health > 0:
+    print(health)`
+  ],
+
+  [
+    "Lists",
+    "Store multiple values.",
+    "Lists hold multiple items.",
+    "Create a list.",
+    `players = ["John", "Bob", "Alex"]`
+  ],
+
+  [
+    "List Indexing",
+    "Access list items.",
+    "Indexes start at zero.",
+    "Print the first item.",
+    `print(players[0])`
+  ],
+
+  [
+    "List Methods",
+    "Change lists.",
+    "Methods such as append add items.",
+    "Add a player.",
+    `players.append("Sarah")`
+  ],
+
+  [
+    "Functions",
+    "Create reusable code.",
+    "Functions group reusable instructions.",
+    "Create a function.",
+    `def hello():
+    print("Hello")`
+  ],
+
+  [
+    "Function Parameters",
+    "Give functions data.",
+    "Parameters allow functions to receive values.",
+    "Create a parameter.",
+    `def greet(name):
+    print(name)`
+  ],
+
+  [
+    "Return",
+    "Send values back.",
+    "return gives a value back from a function.",
+    "Return a result.",
+    `return coins + 10`
+  ],
+
+  [
+    "Dictionaries",
+    "Store key-value data.",
+    "Dictionaries use keys and values.",
+    "Create a player dictionary.",
+    `player = {
+    "name": "Haaris",
+    "coins": 100
+}`
+  ],
+
+  [
+    "Nested Data",
+    "Use data inside data.",
+    "Lists and dictionaries can be nested.",
+    "Create nested data.",
+    `player = {
+    "stats": {
+        "coins": 100
+    }
+}`
+  ],
+
+  [
+    "Files",
+    "Work with files.",
+    "Python can read and write files.",
+    "Open a file.",
+    `with open("data.txt", "w") as file:
+    file.write("Hello")`
+  ],
+
+  [
+    "JSON",
+    "Store structured data.",
+    "JSON is useful for saving structured information.",
+    "Import json.",
+    `import json`
+  ],
+
+  [
+    "Exceptions",
+    "Handle errors.",
+    "try and except can handle errors.",
+    "Create error handling.",
+    `try:
+    print(1 / 0)
+except:
+    print("Error")`
+  ],
+
+  [
+    "Modules",
+    "Use code from modules.",
+    "Modules provide reusable functionality.",
+    "Import a module.",
+    `import math`
+  ],
+
+  [
+    "Classes",
+    "Create objects.",
+    "Classes define objects and their behaviour.",
+    "Create a class.",
+    `class Player:
+    pass`
+  ],
+
+  [
+    "Projects",
+    "Combine Python concepts.",
+    "Build a small program using what you learned.",
+    "Create a mini program.",
+    `name = "Haaris"
+print("Hello", name)`
+  ],
+
+  [
+    "Final Python Project",
+    "Build a complete program.",
+    "Combine variables, conditions, loops, functions and data.",
+    "Create your own project.",
+    `print("My Python Project")`
+  ]
+
+];
+
+let pythonIndex = 0;
+
+
+/* =====================================================
+   LUA LESSONS
+===================================================== */
+
+const luaLessons = [
+
+  [
+    "Variables",
+    "Learn how to store information.",
+    "Variables store values that your program can use.",
+    "Create a variable called playerName.",
+    `local playerName = "Haaris"
+print(playerName)`
+  ],
+
+  [
+    "Printing",
+    "Learn how to display information.",
+    "print() displays information in the console.",
+    "Print a message.",
+    `print("Hello Lua!")`
+  ],
+
+  [
+    "Data Types",
+    "Learn Lua's basic data types.",
+    "Lua commonly uses strings, numbers, booleans, tables and nil.",
+    "Create a boolean variable.",
+    `local playing = true`
+  ],
+
+  [
+    "Strings",
+    "Work with text.",
+    "Strings are text values written inside quotes.",
+    "Create a greeting string.",
+    `local message = "Hello!"`
+  ],
+
+  [
+    "Numbers",
+    "Work with numbers.",
+    "Numbers can be used for scores, coins, health and calculations.",
+    "Create a coins variable.",
+    `local coins = 100`
+  ],
+
+  [
+    "Booleans",
+    "Use true and false.",
+    "Booleans represent two states: true or false.",
+    "Create a variable that says the player is alive.",
+    `local alive = true`
+  ],
+
+  [
+    "If Statements",
+    "Make decisions.",
+    "if runs code when a condition is true.",
+    "Check if coins are greater than 50.",
+    `if coins > 50 then
+    print("Rich!")
+end`
+  ],
+
+  [
+    "Else and elseif",
+    "Handle multiple outcomes.",
+    "else handles the other case and elseif checks another condition.",
+    "Create an if/elseif/else statement.",
+    `if coins > 100 then
+    print("Rich")
+elseif coins > 50 then
+    print("Good")
+else
+    print("Keep playing")
+end`
+  ],
+
+  [
+    "Comparison Operators",
+    "Compare values.",
+    "Operators such as ==, ~=, >, <, >= and <= compare values.",
+    "Check if two values are equal.",
+    `if coins == 100 then
+    print("Exactly 100")
+end`
+  ],
+
+  [
+    "Logical Operators",
+    "Combine conditions.",
+    "and, or and not allow you to combine or reverse conditions.",
+    "Check two conditions together.",
+    `if coins > 50 and alive then
+    print("Ready")
+end`
+  ],
+
+  [
+    "While Loops",
+    "Repeat while a condition is true.",
+    "while loops continue until their condition becomes false.",
+    "Create a health loop.",
+    `while health > 0 do
+    print(health)
+    health = health - 1
+end`
+  ],
+
+  [
+    "For Loops",
+    "Repeat a known number of times.",
+    "Numeric for loops are useful when you know how many repetitions you need.",
+    "Print numbers from 1 to 5.",
+    `for i = 1, 5 do
+    print(i)
+end`
+  ],
+
+  [
+    "Tables",
+    "Store multiple values.",
+    "Tables are Lua's main data structure and can act like lists.",
+    "Create a player list.",
+    `local players = {
+    "John",
+    "Bob",
+    "Alex"
+}`
+  ],
+
+  [
+    "Table Indexing",
+    "Access table items.",
+    "Lua table indexes normally start at 1.",
+    "Print the first player.",
+    `print(players[1])`
+  ],
+
+  [
+    "Adding to Tables",
+    "Add new values.",
+    "table.insert() can add values to a list-like table.",
+    "Add Sarah to the players table.",
+    `table.insert(players, "Sarah")`
+  ],
+
+  [
+    "Removing from Tables",
+    "Remove values.",
+    "table.remove() removes an item from a list-like table.",
+    "Remove the first player.",
+    `table.remove(players, 1)`
+  ],
+
+  [
+    "Pairs and ipairs",
+    "Loop through tables.",
+    "ipairs is useful for ordered list-like tables and pairs for key-value tables.",
+    "Print every player.",
+    `for index, player in ipairs(players) do
+    print(player)
+end`
+  ],
+
+  [
+    "Nested Tables",
+    "Store tables inside tables.",
+    "Nested tables let you organise complex data such as player stats.",
+    "Create nested player stats.",
+    `local player = {
+    stats = {
+        coins = 100,
+        level = 1
+    }
+}`
+  ],
+
+  [
+    "Updating Tables",
+    "Change stored values.",
+    "You can update table values using their keys or indexes.",
+    "Increase a player's level.",
+    `player.stats.level = player.stats.level + 1`
+  ],
+
+  [
+    "Functions",
+    "Create reusable code.",
+    "Functions group instructions that can be called whenever you need them.",
+    "Create a function that says hello.",
+    `function sayHello()
+    print("Hello!")
+end
+
+sayHello()`
+  ],
+
+  [
+    "Function Parameters",
+    "Give functions information.",
+    "Parameters allow a function to receive values.",
+    "Create a function that accepts a player name.",
+    `function greet(name)
+    print("Hello " .. name)
+end
+
+greet("Haaris")`
+  ],
+
+  [
+    "Return Values",
+    "Get a value back from a function.",
+    "return sends a result back to the code that called the function.",
+    "Create a function that adds coins.",
+    `function addCoins(coins)
+    return coins + 10
+end
+
+local newCoins = addCoins(100)
+print(newCoins)`
+  ],
+
+  [
+    "Scope and local",
+    "Understand variable scope.",
+    "local variables are limited to their scope and help prevent accidental changes.",
+    "Create a local variable inside a function.",
+    `function test()
+    local message = "Hello"
+    print(message)
+end
+
+test()`
+  ],
+
+  [
+    "Lua Project",
+    "Combine your Lua skills.",
+    "Use variables, tables, loops, conditions and functions together.",
+    "Build a small player system.",
+    `local player = {
+    name = "Haaris",
+    coins = 100
 }
-function resetCSS(){
-  cssPreview.innerHTML=`<div id="cssTarget" class="preview-demo"><h2>Hello, CSS!</h2><p>Style this preview using CSS.</p><button>Test Button</button></div>`;
+
+print(player.name)`
+  ],
+
+  [
+    "🏆 Final Lua Project",
+    "Build a complete Lua program.",
+    "Combine everything you have learned into a larger project.",
+    "Create your own text-based player system or mini game.",
+    `local player = {
+    name = "Haaris",
+    coins = 100,
+    level = 1
 }
-function runCSS(){
-  const old=document.getElementById('lessonStyle');if(old)old.remove();
-  const style=document.createElement('style');style.id='lessonStyle';
-  style.textContent=`#cssTarget{${cssInput.value}}`;
+
+function levelUp()
+    player.level = player.level + 1
+end
+
+levelUp()
+
+print(player.level)`
+  ]
+
+];
+
+let luaIndex = 0;
+
+
+/* =====================================================
+   BUILD LESSON MENUS
+===================================================== */
+
+function buildMenu(
+  lessons,
+  elementId,
+  openFunction
+) {
+
+  const menu =
+    document.getElementById(elementId);
+
+  lessons.forEach((lesson, index) => {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "lesson-btn";
+
+    button.textContent =
+      `Lesson ${index + 1}: ${lesson[0]}`;
+
+    button.onclick = function() {
+      openFunction(index);
+    };
+
+    menu.appendChild(button);
+
+  });
+
+}
+
+
+/* =====================================================
+   HTML FUNCTIONS
+===================================================== */
+
+function openHTML(index) {
+
+  htmlIndex = index;
+
+  const lesson =
+    htmlLessons[index];
+
+  document.getElementById("htmlNum").textContent =
+    `Lesson ${index + 1} of ${htmlLessons.length}`;
+
+  document.getElementById("htmlTitle").textContent =
+    lesson[0];
+
+  document.getElementById("htmlDesc").textContent =
+    lesson[1];
+
+  document.getElementById("htmlExplain").textContent =
+    lesson[2];
+
+  document.getElementById("htmlChallenge").textContent =
+    lesson[3];
+
+  document.getElementById("htmlExample").textContent =
+    lesson[4];
+
+  document.getElementById("htmlInput").value =
+    "";
+
+  document.getElementById("htmlResult").textContent =
+    "";
+
+  document.getElementById("htmlPreview").innerHTML =
+    "Your HTML preview will appear here.";
+
+  showScreen("htmlLesson");
+
+}
+
+
+function runHTML() {
+
+  const code =
+    document.getElementById("htmlInput").value.trim();
+
+  const preview =
+    document.getElementById("htmlPreview");
+
+  const result =
+    document.getElementById("htmlResult");
+
+  if (code === "") {
+
+    preview.innerHTML =
+      "Your HTML preview will appear here.";
+
+    result.textContent =
+      "⚠️ Enter some HTML first.";
+
+    return;
+
+  }
+
+  preview.innerHTML =
+    code;
+
+  result.textContent =
+    "✅ HTML preview updated!";
+
+}
+
+
+function nextHTML() {
+
+  if (
+    htmlIndex <
+    htmlLessons.length - 1
+  ) {
+
+    openHTML(htmlIndex + 1);
+
+  }
+
+}
+
+
+/* =====================================================
+   CSS FUNCTIONS
+===================================================== */
+
+function openCSS(index) {
+
+  cssIndex = index;
+
+  const lesson =
+    cssLessons[index];
+
+  document.getElementById("cssNum").textContent =
+    `Lesson ${index + 1} of ${cssLessons.length}`;
+
+  document.getElementById("cssTitle").textContent =
+    lesson[0];
+
+  document.getElementById("cssDesc").textContent =
+    lesson[1];
+
+  document.getElementById("cssExplain").textContent =
+    lesson[2];
+
+  document.getElementById("cssChallenge").textContent =
+    lesson[3];
+
+  document.getElementById("cssExample").textContent =
+    lesson[4];
+
+  document.getElementById("cssInput").value =
+    "";
+
+  document.getElementById("cssResult").textContent =
+    "";
+
+  resetCSS();
+
+  showScreen("cssLesson");
+
+}
+
+
+function resetCSS() {
+
+  const preview =
+    document.getElementById("cssPreview");
+
+  preview.innerHTML = `
+
+    <div id="cssTarget" class="preview-demo">
+
+      <h2>Hello, CSS!</h2>
+
+      <p>
+        Style this preview using CSS.
+      </p>
+
+      <button>
+        Test Button
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function runCSS() {
+
+  const oldStyle =
+    document.getElementById("lessonStyle");
+
+  if (oldStyle) {
+
+    oldStyle.remove();
+
+  }
+
+  const style =
+    document.createElement("style");
+
+  style.id =
+    "lessonStyle";
+
+  const css =
+    document.getElementById("cssInput").value;
+
+  style.textContent = `
+    #cssTarget {
+      ${css}
+    }
+  `;
+
   document.head.appendChild(style);
-  cssResult.textContent='✅ CSS applied to the preview!';
-}
-function nextCSS(){if(cssIndex<cssLessons.length-1)openCSS(cssIndex+1)}
 
-/* ================= PYTHON ================= */
-const pythonLessons=[
-["Variables","Learn variables.","Variables store values.","Create a name variable.","name = 'Haaris'\\nprint(name)"],
-["Printing","Learn print().","print() displays information.","Print Hello Python.","print('Hello Python')"],
-["Strings","Learn text values.","Strings store text.","Create a greeting.","message = 'Hello'"],
-["Numbers","Learn numbers.","Python supports integers and decimal numbers.","Create a number.","coins = 100"],
-["Input","Ask the user for information.","input() receives text from the user.","Ask for a name.","name = input('Name: ')"],
-["If Statements","Make decisions.","if runs code when a condition is true.","Check a value.","if coins > 10:\\n    print('Enough')"],
-["Else","Handle another condition.","else runs when the if condition is false.","Add an else.","else:\\n    print('Not enough')"],
-["Elif","Check multiple conditions.","elif lets you test another condition.","Use elif.","elif coins == 10:"],
-["For Loops","Repeat code.","for loops repeat over a sequence.","Loop five times.","for i in range(5):\\n    print(i)"],
-["While Loops","Repeat while true.","while loops continue while a condition is true.","Create a while loop.","while health > 0:"],
-["Lists","Store multiple values.","Lists hold multiple items.","Create a list.","players = ['John','Bob','Alex']"],
-["List Indexing","Access list items.","Indexes start at zero.","Print the first item.","print(players[0])"],
-["List Methods","Change lists.","Methods such as append add items.","Add a player.","players.append('Sarah')"],
-["Functions","Create reusable code.","Functions group reusable instructions.","Create a function.","def hello():\\n    print('Hello')"],
-["Function Parameters","Give functions data.","Parameters allow functions to receive values.","Create a parameter.","def greet(name):"],
-["Return","Send values back.","return gives a value back from a function.","Return a result.","return coins + 10"],
-["Dictionaries","Store key-value data.","Dictionaries use keys and values.","Create a player dictionary.","player = {'name':'Haaris','coins':100}"],
-["Nested Data","Use data inside data.","Lists and dictionaries can be nested.","Create nested data.","player = {'stats': {'coins':100}}"],
-["Files","Work with files.","Python can read and write files.","Open a file.","with open('data.txt','w') as file:"],
-["JSON","Store structured data.","JSON is useful for saving structured information.","Import json.","import json"],
-["Exceptions","Handle errors.","try and except can handle errors.","Create error handling.","try:\\n    print(1/0)\\nexcept:\\n    print('Error')"],
-["Modules","Use code from modules.","Modules provide reusable functionality.","Import a module.","import math"],
-["Classes","Create objects.","Classes define objects and their behaviour.","Create a class.","class Player:"],
-["Projects","Combine Python concepts.","Build a small program using what you learned.","Create a mini program.","name = 'Haaris'\\nprint('Hello', name)"],
-["Final Python Project","Build a complete program.","Combine variables, conditions, loops, functions and data.","Create your own project.","print('My Python Project')"]
-];
-let pythonIndex=0;
-function openPython(i){
-  pythonIndex=i;const x=pythonLessons[i];
-  pythonNum.textContent=`Lesson ${i+1} of ${pythonLessons.length}`;
-  pythonTitle.textContent=x[0];pythonDesc.textContent=x[1];
-  pythonExplain.textContent=x[2];pythonChallenge.textContent=x[3];
-  pythonExample.textContent=x[4];pythonInput.value='';pythonOutput.textContent='Your Python output will appear here.';
-  showScreen('pythonLesson');
-}
-function runPython(){
-  pythonOutput.textContent='Code entered:\\n\\n'+pythonInput.value+'\\n\\n(Note: A real Python interpreter is required to execute Python in the browser.)';
-  pythonResult.textContent='✅ Your Python code was submitted to the editor.';
-}
-function nextPython(){if(pythonIndex<pythonLessons.length-1)openPython(pythonIndex+1)}
+  document.getElementById("cssResult").textContent =
+    "✅ CSS applied to the preview!";
 
-/* ================= LUA - 25 LESSONS ================= */
-const luaLessons=[
-["Variables","Learn how to store information.","Variables store values that your program can use. You have already practised local variables.","Create a variable called playerName.","local playerName = 'Haaris'\\nprint(playerName)"],
-["Printing","Learn how to display information.","print() displays information in the console.","Print a message.","print('Hello Lua!')"],
-["Data Types","Learn Lua's basic data types.","Lua commonly uses strings, numbers, booleans, tables and nil.","Create a boolean variable.","local playing = true"],
-["Strings","Work with text.","Strings are text values written inside quotes.","Create a greeting string.","local message = 'Hello!'"],
-["Numbers","Work with numbers.","Numbers can be used for scores, coins, health and calculations.","Create a coins variable.","local coins = 100"],
-["Booleans","Use true and false.","Booleans represent two states: true or false.","Create a variable that says the player is alive.","local alive = true"],
-["If Statements","Make decisions.","if runs code when a condition is true.","Check if coins are greater than 50.","if coins > 50 then\\n    print('Rich!')\\nend"],
-["Else and elseif","Handle multiple outcomes.","else handles the other case and elseif checks another condition.","Create an if/elseif/else statement.","if coins > 100 then\\n    print('Rich')\\nelseif coins > 50 then\\n    print('Good')\\nelse\\n    print('Keep playing')\\nend"],
-["Comparison Operators","Compare values.","Operators such as ==, ~=, >, <, >= and <= compare values.","Check if two values are equal.","if coins == 100 then\\n    print('Exactly 100')\\nend"],
-["Logical Operators","Combine conditions.","and, or and not allow you to combine or reverse conditions.","Check two conditions together.","if coins > 50 and alive then\\n    print('Ready')\\nend"],
-["While Loops","Repeat while a condition is true.","while loops continue until their condition becomes false.","Create a health loop.","while health > 0 do\\n    print(health)\\n    health = health - 1\\nend"],
-["For Loops","Repeat a known number of times.","Numeric for loops are useful when you know how many repetitions you need.","Print numbers from 1 to 5.","for i = 1, 5 do\\n    print(i)\\nend"],
-["Tables","Store multiple values.","Tables are Lua's main data structure and can act like lists.","Create a player list.","local players = {'John','Bob','Alex'}"],
-["Table Indexing","Access table items.","Lua table indexes normally start at 1.","Print the first player.","print(players[1])"],
-["Adding to Tables","Add new values.","table.insert() can add values to a list-like table.","Add Sarah to the players table.","table.insert(players, 'Sarah')"],
-["Removing from Tables","Remove values.","table.remove() removes an item from a list-like table.","Remove the first player.","table.remove(players, 1)"],
-["Pairs and ipairs","Loop through tables.","ipairs is useful for ordered list-like tables and pairs for key-value tables.","Print every player.","for index, player in ipairs(players) do\\n    print(player)\\nend"],
-["Nested Tables","Store tables inside tables.","Nested tables let you organise complex data such as player stats.","Create nested player stats.","local player = {\\n    stats = {coins = 100, level = 1}\\n}"],
-["Updating Tables","Change stored values.","You can update table values using their keys or indexes.","Increase a player's level.","player.stats.level = player.stats.level + 1"],
-["Functions","Create reusable code.","Functions group instructions that can be called whenever you need them.","Create a function that says hello.","function sayHello()\\n    print('Hello!')\\nend\\n\\nsayHello()"],
-["Function Parameters","Give functions information.","Parameters allow a function to receive values.","Create a function that accepts a player name.","function greet(name)\\n    print('Hello '..name)\\nend"],
-["Return Values","Get a value back from a function.","return sends a result back to the code that called the function.","Create a function that adds coins.","function addCoins(coins)\\n    return coins + 10\\nend"],
-["Scope and local","Understand variable scope.","local variables are limited to their scope and help prevent accidental changes.","Create a local variable inside a function.","function test()\\n    local message = 'Hello'\\n    print(message)\\nend"],
-["Lua Project","Combine your Lua skills.","Use variables, tables, loops, conditions and functions together.","Build a small player system.","local player = {name='Haaris', coins=100}\\nprint(player.name)"],
-["🏆 Final Lua Project","Build a complete Lua program.","Combine everything you have learned into a larger project. This is the final lesson of the 25-lesson course.","Create your own text-based player system or mini game.","local player = {name='Haaris', coins=100, level=1}\\n\\nfunction levelUp()\\n    player.level = player.level + 1\\nend\\n\\nlevelUp()\\nprint(player.level)"]
-];
-let luaIndex=0;
-function openLua(i){
-  luaIndex=i;const x=luaLessons[i];
-  luaNum.textContent=`Lesson ${i+1} of ${luaLessons.length}`;
-  luaTitle.textContent=x[0];luaDesc.textContent=x[1];
-  luaExplain.textContent=x[2];luaChallenge.textContent=x[3];
-  luaExample.textContent=x[4];luaInput.value='';luaOutput.textContent='Your Lua output will appear here.';
-  showScreen('luaLesson');
 }
-function runLua(){
-  luaOutput.textContent='Code entered:\\n\\n'+luaInput.value+'\\n\\n(Note: A Lua interpreter is required to execute Lua in the browser.)';
-  luaResult.textContent='✅ Your Lua code was submitted to the editor.';
+
+
+function nextCSS() {
+
+  if (
+    cssIndex <
+    cssLessons.length - 1
+  ) {
+
+    openCSS(cssIndex + 1);
+
+  }
+
 }
-function nextLua(){if(luaIndex<luaLessons.length-1)openLua(luaIndex+1)}
 
-/* Build lesson menus */
-buildMenu(htmlLessons,'htmlLessons',openHTML);
-buildMenu(cssLessons,'cssLessons',openCSS);
-buildMenu(pythonLessons,'pythonLessons',openPython);
-buildMenu(luaLessons,'luaLessons',openLua);
 
-/* Start with a useful preview */
+/* =====================================================
+   PYTHON FUNCTIONS
+===================================================== */
+
+function openPython(index) {
+
+  pythonIndex = index;
+
+  const lesson =
+    pythonLessons[index];
+
+  document.getElementById("pythonNum").textContent =
+    `Lesson ${index + 1} of ${pythonLessons.length}`;
+
+  document.getElementById("pythonTitle").textContent =
+    lesson[0];
+
+  document.getElementById("pythonDesc").textContent =
+    lesson[1];
+
+  document.getElementById("pythonExplain").textContent =
+    lesson[2];
+
+  document.getElementById("pythonChallenge").textContent =
+    lesson[3];
+
+  document.getElementById("pythonExample").textContent =
+    lesson[4];
+
+  document.getElementById("pythonInput").value =
+    "";
+
+  document.getElementById("pythonResult").textContent =
+    "";
+
+  document.getElementById("pythonOutput").textContent =
+    "Your Python output will appear here.";
+
+  showScreen("pythonLesson");
+
+}
+
+
+function runPython() {
+
+  const code =
+    document.getElementById("pythonInput").value;
+
+  const output =
+    document.getElementById("pythonOutput");
+
+  const result =
+    document.getElementById("pythonResult");
+
+  if (code.trim() === "") {
+
+    output.textContent =
+      "Please enter some Python code.";
+
+    result.textContent =
+      "⚠️ Enter some Python code first.";
+
+    return;
+
+  }
+
+  output.textContent =
+    `Code entered:
+
+${code}
+
+A Python interpreter is required to actually execute Python code in the browser.`;
+
+  result.textContent =
+    "✅ Your Python code was submitted!";
+
+}
+
+
+function nextPython() {
+
+  if (
+    pythonIndex <
+    pythonLessons.length - 1
+  ) {
+
+    openPython(pythonIndex + 1);
+
+  }
+
+}
+
+
+/* =====================================================
+   LUA FUNCTIONS
+===================================================== */
+
+function openLua(index) {
+
+  luaIndex = index;
+
+  const lesson =
+    luaLessons[index];
+
+  document.getElementById("luaNum").textContent =
+    `Lesson ${index + 1} of ${luaLessons.length}`;
+
+  document.getElementById("luaTitle").textContent =
+    lesson[0];
+
+  document.getElementById("luaDesc").textContent =
+    lesson[1];
+
+  document.getElementById("luaExplain").textContent =
+    lesson[2];
+
+  document.getElementById("luaChallenge").textContent =
+    lesson[3];
+
+  document.getElementById("luaExample").textContent =
+    lesson[4];
+
+  document.getElementById("luaInput").value =
+    "";
+
+  document.getElementById("luaResult").textContent =
+    "";
+
+  document.getElementById("luaOutput").textContent =
+    "Your Lua output will appear here.";
+
+  showScreen("luaLesson");
+
+}
+
+
+function runLua() {
+
+  const code =
+    document.getElementById("luaInput").value;
+
+  const output =
+    document.getElementById("luaOutput");
+
+  const result =
+    document.getElementById("luaResult");
+
+  if (code.trim() === "") {
+
+    output.textContent =
+      "Please enter some Lua code.";
+
+    result.textContent =
+      "⚠️ Enter some Lua code first.";
+
+    return;
+
+  }
+
+  output.textContent =
+    `Code entered:
+
+${code}
+
+A Lua interpreter is required to actually execute Lua code in the browser.`;
+
+  result.textContent =
+    "✅ Your Lua code was submitted!";
+
+}
+
+
+function nextLua() {
+
+  if (
+    luaIndex <
+    luaLessons.length - 1
+  ) {
+
+    openLua(luaIndex + 1);
+
+  }
+
+}
+
+
+/* =====================================================
+   BUILD ALL MENUS
+===================================================== */
+
+buildMenu(
+  htmlLessons,
+  "htmlLessons",
+  openHTML
+);
+
+buildMenu(
+  cssLessons,
+  "cssLessons",
+  openCSS
+);
+
+buildMenu(
+  pythonLessons,
+  "pythonLessons",
+  openPython
+);
+
+buildMenu(
+  luaLessons,
+  "luaLessons",
+  openLua
+);
+
+
+/* =====================================================
+   INITIALISE CSS PREVIEW
+===================================================== */
+
 resetCSS();
+
 </script>
 
 </body>
